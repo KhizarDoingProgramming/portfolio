@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    lucide.createIcons();
+    // Initialize Supabase client (replace placeholders with your actual project URL and anon key)
+    const SUPABASE_URL = 'https://flyjnqrqapczqokvzmuv.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZseWpucXJxYXBjenFva3Z6bXV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ5NjAsImV4cCI6MjA5NTUzMDk2MH0.yfVvcOybc35cmWoi4kGEGFo7XqdWO97iLL5MIU_Bs0Q';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     const typed = new Typed('#typing-text', {
         strings: [
@@ -35,11 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     reveals.forEach(reveal => {
         gsap.utils.toArray(reveal.selector).forEach(el => {
-            gsap.fromTo(el, 
-                { 
-                    opacity: 0, 
-                    y: reveal.y, 
-                    x: reveal.x 
+            gsap.fromTo(el,
+                {
+                    opacity: 0,
+                    y: reveal.y,
+                    x: reveal.x
                 },
                 {
                     opacity: 1,
@@ -55,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             );
         });
-    // Ensure reveal elements stay visible after scroll-triggered animations
-    gsap.set('.reveal-up, .reveal-left, .reveal-right, .hero-reveal', { opacity: 1, x: 0, y: 0 });
+        // Ensure reveal elements stay visible after scroll-triggered animations
+        gsap.set('.reveal-up, .reveal-left, .reveal-right, .hero-reveal', { opacity: 1, x: 0, y: 0 });
     });
 
     const navbar = document.getElementById('navbar');
@@ -99,29 +102,20 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const submitBtn = contactForm.querySelector('button');
             const originalText = submitBtn.innerText;
-            
+
             submitBtn.innerText = 'Sending...';
             submitBtn.disabled = true;
 
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData);
-            
+
             try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                const result = await response.json();
-                
-                if (response.ok && result.status === 'success') {
+                const { data: inserted, error } = await supabaseClient.from('contact_messages').insert([data]);
+                if (error) {
+                    alert('Error: ' + error.message);
+                } else {
                     alert('Message sent successfully!');
                     contactForm.reset();
-                } else {
-                    alert('Error: ' + (result.message || 'Something went wrong.'));
                 }
             } catch (error) {
                 console.log('Form data:', Object.fromEntries(formData));
