@@ -43,7 +43,7 @@
         }
     </script>
     
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="icon" href="favicon.png" type="image/png">
 </head>
@@ -168,70 +168,6 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 100) {
-                    navbar.classList.add('nav-scrolled');
-                } else {
-                    navbar.classList.remove('nav-scrolled');
-                }
-            });
-
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const submitBtn = contactForm.querySelector('button');
-                    const originalText = submitBtn.innerText;
-                    
-                    submitBtn.innerText = 'Sending...';
-                    submitBtn.disabled = true;
-
-                    const formData = new FormData(contactForm);
-                    const data = Object.fromEntries(formData);
-                    
-                    try {
-                        const response = await fetch('/api/contact', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(data)
-                        });
-                        
-                        const result = await response.json();
-                        
-                        if (response.ok && result.status === 'success') {
-                            alert('Message sent successfully!');
-                            contactForm.reset();
-                        } else {
-                            alert('Error: ' + (result.message || 'Something went wrong.'));
-                        }
-                    } catch (error) {
-                        console.log('Form data:', Object.fromEntries(formData));
-                        alert('Success! (Local Simulation) Message recorded.');
-                        contactForm.reset();
-                    } finally {
-                        submitBtn.innerText = originalText;
-                        submitBtn.disabled = false;
-                    }
-                });
-            }
-
-            gsap.fromTo('.reveal-left', 
-                { opacity: 0, x: -50 },
-                { opacity: 1, x: 0, duration: 1.2, ease: 'power4.out' }
-            );
-
-            gsap.fromTo('.reveal-right', 
-                { opacity: 0, x: 50 },
-                { opacity: 1, x: 0, duration: 1.2, ease: 'power4.out' }
-            );
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

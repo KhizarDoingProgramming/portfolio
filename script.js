@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const SUPABASE_URL = 'https://flyjnqrqapczqokvzmuv.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZseWpucXJxYXBjenFva3Z6bXV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ5NjAsImV4cCI6MjA5NTUzMDk2MH0.yfVvcOybc35cmWoi4kGEGFo7XqdWO97iLL5MIU_Bs0Q';
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    lucide.createIcons();
 
     const typed = new Typed('#typing-text', {
         strings: [
