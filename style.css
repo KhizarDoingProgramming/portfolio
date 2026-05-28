@@ -52,8 +52,8 @@ h1, h2, h3 {
 .reveal-left,
 .reveal-right,
 .reveal-card {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: none;
   will-change: opacity, transform;
 }
 
