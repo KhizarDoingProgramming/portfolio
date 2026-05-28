@@ -5,20 +5,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     lucide.createIcons();
 
-    const typed = new Typed('#typing-text', {
-        strings: [
-            'Intelligent Mobile Applications.',
-            'TensorFlow & Machine Learning.',
-            'Modern Web Experiences.',
-            'Linear Transformations & Matrix Models.',
-            'Elegant User Interfaces.'
-        ],
-        typeSpeed: 40,
-        backSpeed: 20,
-        backDelay: 2500,
-        loop: true,
-        cursorChar: '|'
-    });
+    // Initialize Typed.js only if the target element exists
+    const typingEl = document.querySelector('#typing-text');
+    if (typingEl) {
+        const typed = new Typed('#typing-text', {
+            strings: [
+                'Intelligent Mobile Applications.',
+                'TensorFlow & Machine Learning.',
+                'Modern Web Experiences.',
+                'Linear Transformations & Matrix Models.',
+                'Elegant User Interfaces.'
+            ],
+            typeSpeed: 40,
+            backSpeed: 20,
+            backDelay: 2500,
+            loop: true,
+            cursorChar: '|'
+        });
+    }
+
+
 
     gsap.registerPlugin(ScrollTrigger);
 
