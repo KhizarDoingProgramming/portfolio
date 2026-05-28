@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             );
         });
+    // Ensure reveal elements stay visible after scroll-triggered animations
+    gsap.set('.reveal-up, .reveal-left, .reveal-right, .hero-reveal', { opacity: 1, x: 0, y: 0 });
     });
 
     const navbar = document.getElementById('navbar');

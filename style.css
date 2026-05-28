@@ -48,7 +48,15 @@ h1, h2, h3 {
 }
 
 /* GSAP Reveal States */
-.reveal-up, .reveal-left, .reveal-right, .hero-reveal {
+    opacity: 0;
+    will-change: opacity, transform;
+    opacity: 0;
+    will-change: opacity, transform;
+}
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
     opacity: 0;
 }
 
@@ -100,11 +108,12 @@ input:focus, textarea:focus {
     box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
 }
 
-/* Ensure .reveal-right is visible by default (fallback) */
-.reveal-right {
-    opacity: 1;               /* fallback visibility */
-    min-height: 350px;        /* reserve space before animation */
+
+.reveal-up {
+    opacity: 1;
+    min-height: 300px;
 }
+
 
 /* Mobile navigation styling */
 @media (max-width: 768px) {
