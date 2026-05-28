@@ -1,0 +1,101 @@
+/* 
+    Mustafa Khizar - Premium Light Theme Styles
+    Design: Apple / Vercel Inspiration (2025)
+*/
+
+:root {
+    --primary: #0066FF;
+    --secondary: #6366f1;
+    --dark: #0f172a;
+    --light: #ffffff;
+    --premium-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom Scrollbar - Premium Light */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Typography Enhancements */
+h1, h2, h3 {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Scroll Animation for Hero Indicator */
+@keyframes scroll-down {
+    0% { transform: translateY(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
+}
+
+/* GSAP Reveal States */
+.reveal-up, .reveal-left, .reveal-right, .hero-reveal {
+    opacity: 0;
+}
+
+/* Navbar Scrolled State */
+.nav-scrolled {
+    height: 70px !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Bento Card Hover Effects */
+.bento-card {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.12);
+}
+
+/* Smooth Transitions */
+.transition-premium {
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Image Hover Grayscale */
+.grayscale-hover {
+    filter: grayscale(1);
+    transition: all 0.8s ease;
+}
+
+.grayscale-hover:hover {
+    filter: grayscale(0);
+}
+
+/* Section Transitions */
+section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Button Glow Effect */
+.btn-glow:hover {
+    box-shadow: 0 0 30px rgba(0, 102, 255, 0.25);
+}
+
+/* Form Focus State */
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+}

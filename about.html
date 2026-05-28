@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghulam Mustafa Khizar | About Me</title>
+    <meta name="description" content="Detailed personal profile of Ghulam Mustafa Khizar - Computer Science student at Arid University, specializing in Machine Learning, Mathematics, and App Development.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066FF',
+                        secondary: '#6366f1',
+                        dark: '#0f172a',
+                        light: '#ffffff',
+                        'light-gray': '#f8fafc',
+                        accent: {
+                            blue: '#3b82f6',
+                            indigo: '#4f46e5',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '2.5rem',
+                    },
+                    boxShadow: {
+                        'premium': '0 20px 50px -12px rgba(0, 0, 0, 0.08)',
+                        'glow': '0 0 20px rgba(0, 102, 255, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" href="favicon.png">
+</head>
+<body class="bg-light text-dark font-sans selection:bg-primary/10 overflow-x-hidden pt-20">
+
+    <div class="fixed inset-0 z-[-1] pointer-events-none opacity-40">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/10 rounded-full blur-[120px]"></div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-gray-100 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black tracking-tighter text-dark hover:scale-105 transition-transform">
+                MUSTAFA<span class="text-primary">.</span>
+            </a>
+            
+            <ul class="hidden md:flex items-center space-x-8 text-[13px] font-bold uppercase tracking-widest text-dark/60">
+                <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                <li><a href="about.html" class="text-primary font-black">About</a></li>
+                <li><a href="expertise.html" class="hover:text-primary transition-colors">Expertise</a></li>
+                <li><a href="projects.html" class="hover:text-primary transition-colors">Work</a></li>
+                <li><a href="contact.html" class="bg-dark text-white px-6 py-3 rounded-full hover:bg-primary transition-all hover:shadow-glow active:scale-95">Let's Talk</a></li>
+            </ul>
+            
+            <button class="md:hidden p-2 text-dark hover:text-primary" id="menu-toggle">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="py-20 px-6 max-w-7xl mx-auto text-center space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-extrabold uppercase tracking-widest">
+            <i data-lucide="user" class="w-4 h-4"></i> Personal Profile
+        </div>
+        <h1 class="text-6xl md:text-7xl font-black tracking-tight text-dark leading-none">
+            About <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Myself</span>
+        </h1>
+        <p class="text-xl text-dark/60 max-w-2xl mx-auto font-medium">
+            A deep-dive into my academic background, mathematical foundations, computing journey, and design philosophies.
+        </p>
+    </header>
+
+    <section class="pb-32 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+            <div class="lg:col-span-5 relative">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 blur-[80px] rounded-full"></div>
+                <div class="relative z-10 bg-white p-4 rounded-[3rem] shadow-premium hover:scale-[1.02] transition-transform duration-500">
+                    <img src="IMG_2058.png" alt="Ghulam Mustafa Khizar" class="rounded-[2.5rem] grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover">
+                </div>
+                
+                <div class="mt-8 bg-white border border-gray-100 p-8 rounded-[2.5rem] shadow-premium space-y-6">
+                    <h3 class="text-xl font-black text-dark">Quick Directory</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-sm font-semibold">
+                            <i data-lucide="map-pin" class="text-primary shrink-0"></i>
+                            <span class="text-dark/70">Lahore, Pakistan</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-sm font-semibold">
+                            <i data-lucide="mail" class="text-primary shrink-0"></i>
+                            <a href="mailto:gmkhizar9@gmail.com" class="text-dark/70 hover:text-primary transition-colors">gmkhizar9@gmail.com</a>
+                        </div>
+                        <div class="flex items-center gap-4 text-sm font-semibold">
+                            <i data-lucide="phone" class="text-primary shrink-0"></i>
+                            <span class="text-dark/70">+92 320 9609931</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-12">
+                <div class="bg-white border border-gray-100 p-10 md:p-12 rounded-[3.5rem] shadow-premium space-y-8">
+                    <h2 class="text-3xl font-black text-dark">Who I Am</h2>
+                    <div class="text-dark/60 font-medium leading-relaxed space-y-6">
+                        <p>
+                            I am <span class="text-dark font-bold">Ghulam Mustafa Khizar</span>, currently pursuing a BS in Computer Science at Arid University (expected graduation 2028). My interest lies at the intersection of mathematical theories, artificial intelligence paradigms, and modular mobile and web applications.
+                        </p>
+                        <p>
+                            My coding journey is built on structural frameworks: from low-level systems execution cycles in Assembly to high-level neural networks and predictions in TensorFlow. I believe in clean code architectures, completely free of messy comments, optimized for performance and maintainability.
+                        </p>
+                        <p>
+                            Beyond direct program architecture, I hold a strong passion for aesthetic brand representation. Working with custom layouts, vector graphic compositions, and high-fidelity PNG layouts, I ensure that the user interfaces I design look stunning, interact fluidly, and engage audiences at first glance.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-100 p-10 md:p-12 rounded-[3.5rem] shadow-premium space-y-8">
+                    <h2 class="text-3xl font-black text-dark">Academic Roadmap</h2>
+                    <div class="space-y-10 relative before:absolute before:top-4 before:bottom-4 before:left-3.5 before:w-0.5 before:bg-gray-100">
+                        <div class="relative pl-12">
+                            <span class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-primary border-4 border-white ring-4 ring-primary/20 z-10 shadow-glow"></span>
+                            <span class="text-[10px] font-black text-primary uppercase tracking-widest block mb-2">Expected 2028</span>
+                            <h4 class="text-xl font-black text-dark">BS Computer Science</h4>
+                            <p class="text-dark/40 font-bold text-xs uppercase tracking-widest mt-1 mb-3">Arid University, Rawalpindi</p>
+                            <p class="text-dark/50 text-sm font-medium leading-relaxed">
+                                Core fields of study include artificial intelligence modeling, deep learning architectures, object-oriented programming frameworks, and advanced linear vectors.
+                            </p>
+                        </div>
+                        
+                        <div class="relative pl-12">
+                            <span class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-secondary border-4 border-white ring-4 ring-secondary/20 z-10"></span>
+                            <span class="text-[10px] font-black text-secondary uppercase tracking-widest block mb-2">2022 - 2024</span>
+                            <h4 class="text-xl font-black text-dark">FSc Pre-Engineering</h4>
+                            <p class="text-dark/40 font-bold text-xs uppercase tracking-widest mt-1 mb-3">Punjab Group of Colleges, Hafizabad</p>
+                            <p class="text-dark/50 text-sm font-medium leading-relaxed">
+                                Developed rigorous problem-solving capacities and analytic foundations covering vector mechanics, algebra, complex chemistry systems, and Newtonian physics dynamics.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-100 p-10 md:p-12 rounded-[3.5rem] shadow-premium space-y-8">
+                    <h2 class="text-3xl font-black text-dark">Key Focus Coursework</h2>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="p-6 bg-light-gray rounded-2xl flex items-start gap-4">
+                            <div class="p-3 bg-white rounded-xl text-primary shadow-premium shrink-0">
+                                <i data-lucide="binary" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-dark text-sm mb-1">Matrix Mechanics & Algebra</h4>
+                                <p class="text-dark/40 text-xs font-bold leading-relaxed">Linear mappings, matrix transforms, high-dimensional arrays, and layers modeling.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 bg-light-gray rounded-2xl flex items-start gap-4">
+                            <div class="p-3 bg-white rounded-xl text-primary shadow-premium shrink-0">
+                                <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-dark text-sm mb-1">Machine Learning Concepts</h4>
+                                <p class="text-dark/40 text-xs font-bold leading-relaxed">Data preprocessing classifiers, gradient optimization, loss metrics, and validations.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-6 bg-light-gray rounded-2xl flex items-start gap-4">
+                            <div class="p-3 bg-white rounded-xl text-primary shadow-premium shrink-0">
+                                <i data-lucide="terminal" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-dark text-sm mb-1">Data Structures & C++</h4>
+                                <p class="text-dark/40 text-xs font-bold leading-relaxed">Array manipulations, linked chains, computational complexity scales, OOP architectures.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-6 bg-light-gray rounded-2xl flex items-start gap-4">
+                            <div class="p-3 bg-white rounded-xl text-primary shadow-premium shrink-0">
+                                <i data-lucide="layers" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-dark text-sm mb-1">UI Composition & Branding</h4>
+                                <p class="text-dark/40 text-xs font-bold leading-relaxed">Aesthetic theme layouts, clean pixel assets, overlay masking, and visual grids.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 px-6 border-t border-gray-50 bg-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <a href="index.html" class="text-3xl font-black tracking-tighter text-dark">
+                MUSTAFA<span class="text-primary">.</span>
+            </a>
+            <div class="flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-dark/40">
+                <a href="https://github.com/KhizarDoingProgramming" class="hover:text-primary transition-colors" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/mustafa-khizar/" class="hover:text-primary transition-colors" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/khiizeee/" class="hover:text-primary transition-colors" target="_blank">Instagram</a>
+            </div>
+            <p class="text-xs font-bold text-dark/30">
+                &copy; 2026 Ghulam Mustafa Khizar. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('nav-scrolled');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                }
+            });
+
+            gsap.from('.lg\\:col-span-5', {
+                opacity: 0,
+                x: -50,
+                duration: 1.2,
+                ease: 'power4.out'
+            });
+
+            gsap.from('.lg\\:col-span-7 > div', {
+                opacity: 0,
+                y: 50,
+                duration: 1.2,
+                stagger: 0.15,
+                ease: 'power4.out'
+            });
+        });
+    </script>
+</body>
+</html>
