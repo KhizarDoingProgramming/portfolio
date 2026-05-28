@@ -52,12 +52,11 @@ h1, h2, h3 {
 .reveal-left,
 .reveal-right,
 .reveal-card {
-  opacity: 1;
-  transform: none;
+  opacity: 0;
+  transform: translateY(30px);
   will-change: opacity, transform;
 }
 
-/* Visible state after animation */
 .reveal-up.visible,
 .reveal-left.visible,
 .reveal-right.visible,
@@ -65,15 +64,6 @@ h1, h2, h3 {
   opacity: 1;
   transform: none;
   transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-/* Fallback for when JS is disabled – ensure elements are visible */
-.no-js .reveal-up,
-.no-js .reveal-left,
-.no-js .reveal-right,
-.no-js .reveal-card {
-  opacity: 1;
-  transform: none;
 }
 
 /* Navbar Scrolled State */
