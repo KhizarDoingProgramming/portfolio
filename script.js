@@ -68,18 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const menuToggle = document.getElementById('menu-toggle');
     const mobileNav = document.querySelector('nav ul');
-    if (menuToggle) {
+    if (menuToggle && mobileNav) {
         menuToggle.addEventListener('click', () => {
-            mobileNav.classList.toggle('hidden');
-            mobileNav.classList.toggle('flex');
-            mobileNav.classList.toggle('flex-col');
-            mobileNav.classList.toggle('absolute');
-            mobileNav.classList.toggle('top-20');
-            mobileNav.classList.toggle('left-0');
-            mobileNav.classList.toggle('w-full');
-            mobileNav.classList.toggle('bg-white');
-            mobileNav.classList.toggle('p-8');
-            mobileNav.classList.toggle('border-b');
+            mobileNav.classList.toggle('show');
         });
     }
 
