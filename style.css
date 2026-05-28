@@ -109,6 +109,16 @@ section {
     box-shadow: 0 0 30px rgba(0, 102, 255, 0.25);
 }
 
+/* Lucide Icon Styling */
+.lucide {
+    stroke: currentColor;
+    fill: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    /* Optional glow effect */
+    /* box-shadow can be added to a wrapper if needed */
+}
+
 /* Form Focus State */
 input:focus, textarea:focus {
     box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
