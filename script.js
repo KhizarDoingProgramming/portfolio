@@ -79,10 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const menuToggle = document.getElementById('menu-toggle');
-    const mobileNav = document.querySelector('nav ul');
+    const mobileNav = document.querySelector('#navbar ul');
     if (menuToggle && mobileNav) {
         menuToggle.addEventListener('click', () => {
-            mobileNav.classList.toggle('show');
+            const isOpen = mobileNav.classList.toggle('show');
+            // Update aria-expanded for accessibility
+            menuToggle.setAttribute('aria-expanded', isOpen);
         });
     }
 
