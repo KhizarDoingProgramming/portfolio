@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Supabase client (replace placeholders with your actual project URL and anon key)
-    const SUPABASE_URL = 'https://flyjnqrqapczqokvzmuv.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZseWpucXJxYXBjenFva3Z6bXV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ5NjAsImV4cCI6MjA5NTUzMDk2MH0.yfVvcOybc35cmWoi4kGEGFo7XqdWO97iLL5MIU_Bs0Q';
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    let supabaseClient = null;
+    if (typeof supabase !== 'undefined') {
+        const SUPABASE_URL = 'https://flyjnqrqapczqokvzmuv.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZseWpucXJxYXBjenFva3Z6bXV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ5NjAsImV4cCI6MjA5NTUzMDk2MH0.yfVvcOybc35cmWoi4kGEGFo7XqdWO97iLL5MIU_Bs0Q';
+        supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    }
     lucide.createIcons();
 
     // Initialize Typed.js only if the target element exists
@@ -85,6 +87,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const isOpen = mobileNav.classList.toggle('show');
             // Update aria-expanded for accessibility
             menuToggle.setAttribute('aria-expanded', isOpen);
+            
+            if (isOpen) {
+                document.body.style.overflow = 'hidden';
+                menuToggle.innerHTML = '<i data-lucide="x"></i>';
+            } else {
+                document.body.style.overflow = '';
+                menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+            }
+            lucide.createIcons();
+        });
+
+        // Auto-close on link click
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('show');
+                document.body.style.overflow = '';
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+                lucide.createIcons();
+            });
         });
     }
 
@@ -105,6 +127,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Active link highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('#navbar ul li a');
+
+    if (sections.length > 0 && navLinks.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        // Skip styling for buttons like "Let's Talk" which have bg-dark class
+                        if (!link.classList.contains('bg-dark')) {
+                            link.classList.remove('text-primary', 'font-black');
+                            if (link.getAttribute('href') && link.getAttribute('href').includes(id)) {
+                                link.classList.add('text-primary', 'font-black');
+                            }
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3, rootMargin: "-10% 0px -50% 0px" });
+
+        sections.forEach(section => observer.observe(section));
+    }
+
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
@@ -119,11 +166,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = Object.fromEntries(formData);
 
             try {
-                const { data: inserted, error } = await supabaseClient.from('contact_messages').insert([data]);
-                if (error) {
-                    alert('Error: ' + error.message);
+                if (supabaseClient) {
+                    const { data: inserted, error } = await supabaseClient.from('contact_messages').insert([data]);
+                    if (error) {
+                        alert('Error: ' + error.message);
+                    } else {
+                        alert('Message sent successfully!');
+                        contactForm.reset();
+                    }
                 } else {
-                    alert('Message sent successfully!');
+                    console.log('Form data:', Object.fromEntries(formData));
+                    alert('Success! (Local Simulation) Message recorded.');
                     contactForm.reset();
                 }
             } catch (error) {
