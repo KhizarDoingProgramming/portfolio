@@ -146,7 +146,7 @@ input:focus, textarea:focus {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
+        gap: 0.5rem;
         z-index: 40;
         transform: translateY(-100%);
         opacity: 0;
@@ -179,6 +179,6 @@ input:focus, textarea:focus {
     nav ul li a {
         font-size: 1.5rem;
         display: block;
-        padding: 1rem;
+        padding: 0.5rem;
     }
 }
