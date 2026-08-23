@@ -1,607 +1,457 @@
-<!-- Deployment trigger -->
-<html lang="en" class="scroll-smooth">
-
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghulam Mustafa Khizar | BS CS & AI Developer Portfolio</title>
-    <meta name="description"
-        content="Portfolio of Ghulam Mustafa Khizar, Computer Science student and AI Developer. Specializing in machine learning models, mobile apps, and premium web architectures.">
-
+    <title>Ghulam Mustafa Khizar</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0066FF',
-                        secondary: '#6366f1',
-                        dark: '#0f172a',
-                        light: '#ffffff',
-                        'light-gray': '#f8fafc',
-                        accent: {
-                            blue: '#3b82f6',
-                            indigo: '#4f46e5',
-                        }
+                        accent: '#0ea5e9',
+                        dark: '#0a0a0a',
+                        darker: '#000000',
+                        light: '#1f1f1f',
+                        white: '#ffffff'
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         display: ['Outfit', 'sans-serif'],
-                    },
-                    borderRadius: {
-                        '4xl': '2rem',
-                        '5xl': '2.5rem',
-                    },
-                    boxShadow: {
-                        'premium': '0 20px 50px -12px rgba(0, 0, 0, 0.08)',
-                        'glow': '0 0 20px rgba(0, 102, 255, 0.15)',
                     }
                 }
             }
         }
     </script>
-
+    
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="assets/images/favicon.jpeg" type="image/jpeg">
 </head>
+<body class="bg-dark text-white font-sans overflow-x-hidden">
 
-<body class="bg-light text-dark font-sans selection:bg-primary/10 overflow-x-hidden">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
 
-    <div class="fixed inset-0 z-[-1] pointer-events-none opacity-40">
-        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/10 rounded-full blur-[120px]">
+    <!-- Preloader -->
+    <div id="preloader">
+        <span class="text-white text-2xl font-black uppercase tracking-[0.5em] font-display">Mustafa.</span>
+    </div>
+
+    <!-- Fullscreen Menu Overlay -->
+    <div id="menu-overlay" class="fixed inset-0 bg-darker text-white z-[100] flex flex-col justify-center px-6 md:px-24 pointer-events-none">
+        <button id="close-menu" class="absolute top-8 right-8 md:top-12 md:right-12 text-white hover:text-accent transition-colors hover-target z-[110] pointer-events-auto">
+            <i data-lucide="x" class="w-12 h-12"></i>
+        </button>
+        <ul class="text-5xl md:text-8xl font-display font-black space-y-6 md:space-y-10 uppercase tracking-tighter relative z-[105]">
+            <li><a href="#hero" class="menu-link hover-target nav-link">Home</a></li>
+            <li><a href="#who" class="menu-link hover-target nav-link">Who am I</a></li>
+            <li><a href="#what" class="menu-link hover-target nav-link">What I Build</a></li>
+            <li><a href="projects.html" class="menu-link hover-target">All Projects</a></li>
+            <li><a href="#contact" class="menu-link hover-target nav-link">Let's Talk</a></li>
+        </ul>
+        <div class="mt-20 flex gap-12 font-bold uppercase tracking-widest text-sm text-white/50 relative z-[105]">
+            <a href="https://github.com/KhizarDoingProgramming" target="_blank" class="hover:text-white transition-colors hover-target">Github</a>
+            <a href="https://www.linkedin.com/in/mustafa-khizar/" target="_blank" class="hover:text-white transition-colors hover-target">LinkedIn</a>
         </div>
     </div>
 
-    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-gray-100 transition-all duration-500"
-        id="navbar">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                <a href="index.html" class="text-2xl font-black tracking-tighter text-dark hover:scale-105 transition-transform">
-                    MUSTAFA<span class="text-primary">.</span>
-                </a>
-
-                <ul
-                    class="hidden md:flex items-center space-x-8 text-[13px] font-bold uppercase tracking-widest text-dark/60">
-                    <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
-                    <li><a href="about.html" class="hover:text-primary transition-colors">About</a></li>
-                    <li><a href="expertise.html" class="hover:text-primary transition-colors">Expertise</a></li>
-                    <li><a href="projects.html" class="hover:text-primary transition-colors">Work</a></li>
-                    <li><a href="contact.html"
-                            class="bg-dark text-white px-6 py-3 rounded-full hover:bg-primary transition-all hover:shadow-glow active:scale-95">Let's
-                            Talk</a></li>
-                </ul>
-
-            <button class="md:hidden p-2 text-dark hover:text-primary" id="menu-toggle">
-                <i data-lucide="menu"></i>
+    <!-- Header -->
+    <!-- Removed mix-blend-difference and pointer-events-none to ensure the button is perfectly clickable -->
+    <header class="fixed top-0 w-full z-50 px-6 py-8 md:px-12 md:py-10 flex items-center justify-between text-white drop-shadow-md">
+        <a href="#hero" class="hover-target flex items-center gap-4">
+            <img src="assets/images/logo.png" alt="Logo" class="h-10 md:h-12 w-auto max-w-[200px] object-contain">
+        </a>
+        <div class="flex items-center gap-6">
+            <a href="#contact" class="hidden md:flex bg-white text-darker px-8 py-3 rounded-full font-black text-xs uppercase tracking-widest hover:bg-accent hover:text-white transition-colors hover-target">Let's Talk</a>
+            <button id="open-menu" class="p-2 hover:text-accent transition-colors hover-target relative z-50 cursor-pointer">
+                <i data-lucide="menu" class="w-10 h-10"></i>
             </button>
         </div>
-    </nav>
+    </header>
 
-    <section id="home" class="relative min-h-screen flex items-center justify-center px-4 md:px-6 pt-20 overflow-hidden">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 md:p-12 items-center">
-            <div class="text-left space-y-8 hero-reveal">
-                <div
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-extrabold uppercase tracking-widest">
-                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                    BS Computer Science & AI Student
-                </div>
-                <h1 class="text-5xl md:text-8xl font-black text-dark leading-[0.9] tracking-tight">
-                    AI & Mobile <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Developer</span><br>
-                    & UI Designer.
-                </h1>
-                <p class="text-xl md:text-2xl text-dark/60 font-medium max-w-xl">
-                    I build <span id="typing-text"
-                        class="text-dark font-bold underline decoration-primary/30 underline-offset-4"></span>
-                </p>
-
-                <div class="flex flex-col sm:flex-row items-center gap-6 pt-4">
-                    <a href="projects.html"
-                        class="group relative px-10 py-5 bg-dark text-white rounded-2xl font-bold overflow-hidden transition-all hover:shadow-premium hover:-translate-y-1 active:scale-95">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        </div>
-                        <span class="relative z-10 flex items-center gap-3">
-                            View My Projects
-                            <i data-lucide="arrow-right"
-                                class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                        </span>
-                    </a>
-                    <a href="assets/pdf/Mustafa_Khizar_CV.pdf" target="_blank"
-                        class="group px-10 py-5 bg-white border border-gray-200 text-dark rounded-2xl font-bold hover:bg-gray-50 transition-all flex items-center gap-3 active:scale-95">
-                        View CV
-                        <i data-lucide="external-link" class="w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
-                    </a>
-                </div>
-
-                <div class="flex items-center gap-6 md:p-10 pt-10 border-t border-gray-100">
-                    <div>
-                        <p class="text-3xl font-black text-dark">Arid</p>
-                        <p class="text-xs font-bold text-dark/40 uppercase tracking-widest">University</p>
-                    </div>
-                    <div>
-                        <p class="text-3xl font-black text-dark">15+</p>
-                        <p class="text-xs font-bold text-dark/40 uppercase tracking-widest">Projects Built</p>
-                    </div>
-                    <div>
-                        <p class="text-3xl font-black text-dark">A+</p>
-                        <p class="text-xs font-bold text-dark/40 uppercase tracking-widest">Academic Grade</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="relative hero-reveal hidden lg:block">
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 blur-[100px] rounded-full">
-                </div>
-                <div
-                    class="relative z-10 bg-white p-4 rounded-[3rem] shadow-premium rotate-3 hover:rotate-0 transition-transform duration-700">
-                    <img src="IMG_2058.png" alt="Ghulam Mustafa Khizar"
-                        class="rounded-[2.5rem] grayscale hover:grayscale-0 transition-all duration-700">
-
-                    <div class="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-premium animate-bounce">
-                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-                            <i data-lucide="cpu" class="w-6 h-6"></i>
-                        </div>
-                    </div>
-
-                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-premium animate-pulse">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                                <i data-lucide="zap" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <p class="text-[10px] font-bold text-dark/40 uppercase">Intelligence</p>
-                                <p class="text-sm font-bold text-dark">TensorFlow</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Hero Section -->
+    <section id="hero" class="relative w-full h-screen overflow-hidden bg-darker">
+        <!-- Background Image with radial mask for seamless edge blending -->
+        <div class="absolute inset-0 z-0 hero-img-container flex justify-center items-start bg-darker">
+            <img src="assets/images/main.PNG" alt="Ghulam Mustafa Khizar" class="w-full h-full md:h-[115%] object-contain object-top img-bw opacity-80 transition-transform duration-1000 scale-100" style="-webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 100%); mask-image: radial-gradient(ellipse at center, black 40%, transparent 100%);">
         </div>
 
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
-            <div class="flex flex-col items-center gap-2">
-                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-dark/30">Scroll</p>
-                <div class="w-1 h-12 bg-gray-100 rounded-full relative overflow-hidden">
-                    <div
-                        class="absolute top-0 left-0 w-full h-1/2 bg-primary rounded-full animate-[scroll-down_2s_infinite]">
-                    </div>
-                </div>
-            </div>
+        <!-- Huge Text Overlay -->
+        <div class="absolute inset-0 z-20 flex flex-col items-center justify-end pb-[15vh] pointer-events-none px-4">
+            <h1 class="massive-text text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.9)] text-center leading-[0.8] mb-4 hero-text opacity-0 transform translate-y-10">
+                WELCOME TO<br><span class="text-white [-webkit-text-stroke:0px]">MY WORLD.</span>
+            </h1>
+        </div>
+
+        <!-- Scroll Down indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 flex items-center justify-center w-32 h-32 opacity-70 hover:opacity-100 transition-opacity">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-spin-slow">
+                <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
+                <text class="text-[11px] font-black uppercase tracking-[0.25em]" fill="white">
+                    <textPath href="#circlePath">Scroll Down • Scroll Down • </textPath>
+                </text>
+            </svg>
+            <i data-lucide="arrow-down" class="absolute w-8 h-8 text-accent animate-bounce"></i>
         </div>
     </section>
 
-    <section id="about" class="py-20 md:py-32 px-4 md:px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-12 gap-6">
-                <div
-                    class="lg:col-span-8 p-8 md:p-12 bg-white border border-gray-100 rounded-[3rem] shadow-premium reveal-left">
-                    <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">
-                        Fusing <span class="text-primary">Mathematics</span> & AI with <br>Intelligent Mobile & Web
-                        Design.
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-8 text-dark/60 leading-relaxed font-medium">
-                        <p>
-                            Hello! My name is <span class="text-dark font-bold">Ghulam Mustafa Khizar</span>. I am a
-                            Computer Science & AI student at Arid University, passionately building mobile applications,
-                            machine learning architectures, and high-impact digital brands.
-                        </p>
-                        <p>
-                            With a strong mathematical foundation in Linear Algebra and matrix mechanics, I leverage
-                            tools like TensorFlow and modern development roadmaps to create elegant, computational
-                            solutions that operate seamlessly.
-                        </p>
-                    </div>
-
-                    <div class="mt-12 flex flex-wrap gap-4">
-                        <div class="px-6 py-4 bg-gray-50 rounded-2xl flex items-center gap-4">
-                            <i data-lucide="cpu" class="text-primary"></i>
-                            <span class="font-bold text-sm">AI & ML Specialist</span>
-                        </div>
-                        <div class="px-6 py-4 bg-gray-50 rounded-2xl flex items-center gap-4">
-                            <i data-lucide="smartphone" class="text-secondary"></i>
-                            <span class="font-bold text-sm">Mobile Developer</span>
-                        </div>
-                        <div class="px-6 py-4 bg-gray-50 rounded-2xl flex items-center gap-4">
-                            <i data-lucide="palette" class="text-accent-blue"></i>
-                            <span class="font-bold text-sm">Digital UI Designer</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-4 grid gap-6 reveal-right">
-                    <div class="p-8 bg-primary text-white rounded-[2.5rem] shadow-glow flex flex-col justify-between">
-                        <i data-lucide="graduation-cap" class="w-10 h-10 mb-6"></i>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">BS Computer Science</h3>
-                            <p class="text-white/70 text-sm font-medium">Arid University (Expected 2028)</p>
-                        </div>
-                    </div>
-                    <div class="p-8 bg-dark text-white rounded-[2.5rem] shadow-premium flex flex-col justify-between">
-                        <i data-lucide="briefcase" class="w-10 h-10 mb-6 text-primary"></i>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Digital Identity</h3>
-                            <p class="text-white/70 text-sm font-medium">Aesthetic & Branding Systems</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Who Am I -->
+    <section id="who" class="relative bg-dark overflow-hidden text-white border-y border-white/5">
+        <div class="flex flex-col md:flex-row">
+            <!-- Left Pinned Side -->
+            <div class="md:w-1/2 md:h-screen md:sticky md:top-0 flex items-center justify-center p-12 bg-darker relative border-r border-white/5">
+                <div class="absolute inset-0 opacity-10 bg-[url('assets/images/main.PNG')] bg-cover bg-top grayscale blur-md"></div>
+                <h2 class="huge-text text-white relative z-10 break-words text-center leading-[0.9]">WHO<br>AM I</h2>
             </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-20 md:py-32 px-4 md:px-6 bg-light-gray">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12 md:mb-20 reveal-up">
-                <h2 class="text-4xl md:text-5xl font-black mb-4">Core <span class="text-primary">Expertise</span></h2>
-                <p class="text-dark/40 font-bold uppercase tracking-widest text-xs">My technical stack & mathematical
-                    foundations</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div
-                    class="p-6 md:p-10 bg-white border border-gray-100 rounded-[3rem] shadow-premium group hover:border-primary transition-all reveal-up">
-                    <div class="flex justify-between items-start mb-8">
-                        <div
-                            class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                            <i data-lucide="cpu" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-3xl font-black text-dark/10">01</span>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4">Machine Learning & AI</h3>
-                    <p class="text-dark/50 text-sm font-medium mb-6">Implementing linear transformation, matrix models,
-                        neural network layer behaviors, and computational data flows with TensorFlow.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-50 text-[10px] font-bold rounded-full">TensorFlow</span>
-                        <span class="px-3 py-1 bg-gray-50 text-[10px] font-bold rounded-full">Linear Algebra</span>
-                        <span class="px-3 py-1 bg-gray-50 text-[10px] font-bold rounded-full">Matrix Equations</span>
-                    </div>
-                </div>
-
-                <div class="p-6 md:p-10 bg-white border border-gray-100 rounded-[3rem] shadow-premium group hover:border-secondary transition-all reveal-up"
-                    style="transition-delay: 100ms;">
-                    <div class="flex justify-between items-start mb-8">
-                        <div
-                            class="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
-                            <i data-lucide="smartphone" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-3xl font-black text-dark/10">02</span>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4">Computing & App Dev</h3>
-                    <p class="text-dark/50 text-sm font-medium mb-6">Developing responsive frontend systems and
-                        structured native/cross-platform application layouts built on solid computer science data
-                        structures.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-50 text-[10px] font-bold rounded-full">Web Technologies</span>
-                        <span class="px-3 py-1 bg-gray-50 text-[10px] font-bold rounded-full">Data Structures</span>
-                        <span class="px-3 py-1 bg-gray-50 text-[10px] font-bold rounded-full">iOS & Android</span>
-                    </div>
-                </div>
-
-                <div class="p-6 md:p-10 bg-white border border-gray-100 rounded-[3rem] shadow-premium group hover:border-accent-blue transition-all reveal-up"
-                    style="transition-delay: 200ms;">
-                    <div class="flex justify-between items-start mb-8">
-                        <div
-                            class="w-14 h-14 bg-accent-blue/10 rounded-2xl flex items-center justify-center text-accent-blue group-hover:scale-110 transition-transform">
-                            <i data-lucide="palette" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-3xl font-black text-dark/10">03</span>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4">UI Design & Branding</h3>
-                    <p class="text-dark/50 text-sm font-medium mb-6">Structuring clean aesthetic layouts, managing PNG
-                        backgrounds, vector assets, and designing dynamic visual identities across channels.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-50 text-[10px] font-bold rounded-full">Image Composition</span>
-                        <span class="px-3 py-1 bg-gray-50 text-[10px] font-bold rounded-full">PNG Editing</span>
-                        <span class="px-3 py-1 bg-gray-50 text-[10px] font-bold rounded-full">Social Aesthetics</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" class="py-20 md:py-32 px-4 md:px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12 md:mb-20 reveal-up">
-                <h2 class="text-4xl md:text-5xl font-black mb-4">Education</h2>
-                <div class="w-20 h-1.5 bg-primary mx-auto rounded-full"></div>
-            </div>
-
-            <div class="space-y-12">
-                <div class="group relative pl-12 md:pl-0 reveal-up">
-                    <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gray-100">
-                    </div>
-                    <div class="md:flex items-center justify-between">
-                        <div
-                            class="md:w-[45%] p-6 md:p-10 bg-white border border-gray-100 rounded-[2.5rem] shadow-premium hover:-translate-y-2 transition-all">
-                            <span class="text-primary font-black text-xs uppercase tracking-widest mb-4 block">Expected
-                                2028</span>
-                            <h3 class="text-2xl font-black mb-2 text-dark">BS Computer Science</h3>
-                            <p class="text-dark/40 font-bold mb-6 text-sm">Arid University, Rawalpindi</p>
-                            <p class="text-dark/60 text-sm leading-relaxed">
-                                Focusing on foundational AI/ML engineering, advanced linear mechanics, and intelligent
-                                design workflows.
-                            </p>
-                        </div>
-                        <div
-                            class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-primary z-10 shadow-glow">
-                        </div>
-                        <div class="hidden md:block md:w-[45%]"></div>
-                    </div>
-                </div>
-
-                <div class="group relative pl-12 md:pl-0 reveal-up" style="transition-delay: 100ms;">
-                    <div class="md:flex items-center justify-between flex-row-reverse">
-                        <div
-                            class="md:w-[45%] p-6 md:p-10 bg-white border border-gray-100 rounded-[2.5rem] shadow-premium hover:-translate-y-2 transition-all">
-                            <span class="text-secondary font-black text-xs uppercase tracking-widest mb-4 block">2022 -
-                                2024</span>
-                            <h3 class="text-2xl font-black mb-2 text-dark">FSc Pre-Engineering</h3>
-                            <p class="text-dark/40 font-bold mb-6 text-sm">Punjab Group of Colleges, Hafizabad</p>
-                            <p class="text-dark/60 text-sm leading-relaxed">
-                                Built a strong foundation in Mathematics, Physics, and Chemistry, fostering an
-                                analytical mindset for problem-solving.
-                            </p>
-                        </div>
-                        <div
-                            class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-secondary z-10 shadow-premium">
-                        </div>
-                        <div class="hidden md:block md:w-[45%]"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-20 md:py-32 px-4 md:px-6 bg-dark text-white rounded-t-[4rem] md:rounded-t-[6rem]">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-20 gap-8 reveal-up">
-                <div>
-                    <h2 class="text-4xl md:text-6xl font-black mb-4">Selected <span class="text-primary">Works</span></h2>
-                    <p class="text-white/40 font-bold uppercase tracking-widest text-xs">My actual engineering and
-                        design implementations</p>
-                </div>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="group reveal-up">
-                    <div class="relative aspect-video rounded-[3rem] overflow-hidden mb-8 bg-slate-800">
-                        <div
-                            class="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6">
-                            <a href="https://github.com/KhizarDoingProgramming" target="_blank"
-                                class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-dark hover:scale-110 transition-transform"><i
-                                    data-lucide="github"></i></a>
-                        </div>
-                        <div
-                            class="w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-indigo-950 to-dark">
-                            <i data-lucide="users" class="w-10 h-10 text-primary"></i>
-                            <div>
-                                <span class="text-xs uppercase tracking-widest text-primary font-black">Featured
-                                    Project</span>
-                                <h4 class="text-2xl font-black text-white mt-1">CampusBook</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap gap-3 mb-6">
-                        <span
-                            class="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest">PHP
-                            & MySQL</span>
-                        <span
-                            class="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest">React
-                            Components</span>
-                    </div>
-                    <h3 class="text-3xl font-black mb-4">CampusBook Social Network</h3>
-                    <p class="text-white/50 text-base font-medium leading-relaxed mb-8">
-                        A premium university life social networking platform featuring modular PHP backend, custom
-                        database seed architecture, dynamic React-based story viewer, and a live chat UI with secure
-                        authentications.
+            
+            <!-- Right Scrolling Content -->
+            <div class="md:w-1/2 p-12 md:p-24 md:py-48 flex flex-col gap-32">
+                <div class="reveal-up">
+                    <p class="text-accent font-black text-sm uppercase tracking-widest mb-6">Introduction</p>
+                    <p class="text-3xl md:text-5xl font-display font-black leading-tight mb-8">
+                        I am a Computer Science & AI student fusing mathematics with intelligent digital design.
+                    </p>
+                    <p class="text-xl text-white/60 font-medium leading-relaxed max-w-xl">
+                        With a strong foundation in Linear Algebra and matrix mechanics, I leverage modern engineering to create applications that don't just work—they make an impact.
                     </p>
                 </div>
 
-                <div class="group reveal-up" style="transition-delay: 100ms;">
-                    <div class="relative aspect-video rounded-[3rem] overflow-hidden mb-8 bg-slate-800">
-                        <div
-                            class="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6">
-                            <a href="https://github.com/KhizarDoingProgramming" target="_blank"
-                                class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-dark hover:scale-110 transition-transform"><i
-                                    data-lucide="github"></i></a>
-                        </div>
-                        <div
-                            class="w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-blue-950 to-dark">
-                            <i data-lucide="shopping-bag" class="w-10 h-10 text-secondary"></i>
-                            <div>
-                                <span class="text-xs uppercase tracking-widest text-secondary font-black">University Web
-                                    Submission</span>
-                                <h4 class="text-2xl font-black text-white mt-1">Smoker's Hub</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap gap-3 mb-6">
-                        <span
-                            class="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest">Modular
-                            PHP</span>
-                        <span
-                            class="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest">Responsive
-                            UX</span>
-                    </div>
-                    <h3 class="text-3xl font-black mb-4">Smoker's Hub Web Platform</h3>
-                    <p class="text-white/50 text-base font-medium leading-relaxed mb-8">
-                        Evolution of a legacy HTML project into an industry-grade e-commerce application. Integrated
-                        structured session authentications, clean relational catalogs, and refined database
-                        configurations.
-                    </p>
-                </div>
-
-                <div class="group reveal-up" style="transition-delay: 200ms;">
-                    <div class="relative aspect-video rounded-[3rem] overflow-hidden mb-8 bg-slate-800">
-                        <div
-                            class="w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-indigo-950 to-violet-950">
-                            <i data-lucide="image" class="w-10 h-10 text-accent-blue"></i>
-                            <div>
-                                <span class="text-xs uppercase tracking-widest text-accent-blue font-black">Branding
-                                    Suite</span>
-                                <h4 class="text-2xl font-black text-white mt-1">Aesthetic Branding Engine</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap gap-3 mb-6">
-                        <span
-                            class="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest">AI
-                            Prompting</span>
-                        <span
-                            class="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest">Digital
-                            Design</span>
-                    </div>
-                    <h3 class="text-3xl font-black mb-4">Social Media Aesthetic Engine</h3>
-                    <p class="text-white/50 text-base font-medium leading-relaxed mb-8">
-                        Design branding framework utilizing advanced artificial intelligence prompts to generate
-                        specific graphic themes, perform clean PNG image configurations, and compose coherent layout
-                        assets.
+                <div class="reveal-up">
+                    <p class="text-accent font-black text-sm uppercase tracking-widest mb-6">The Process</p>
+                    <h3 class="text-3xl md:text-4xl font-display font-black leading-tight mb-8">Engineering meets Aesthetics.</h3>
+                    <p class="text-xl text-white/60 font-medium leading-relaxed max-w-xl">
+                        I build responsive frontend systems, cross-platform apps, and robust PHP/MySQL backends. But engineering isn't enough. Every project must possess a striking digital identity.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="cv" class="py-20 md:py-32 px-4 md:px-6">
-        <div
-            class="max-w-5xl mx-auto p-8 md:p-24 bg-light-gray border border-gray-100 rounded-[4rem] text-center relative overflow-hidden reveal-up">
-            <div class="relative z-10">
-                <div
-                    class="w-24 h-24 bg-white rounded-3xl shadow-premium flex items-center justify-center mx-auto mb-10 text-primary">
-                    <i data-lucide="file-text" class="w-10 h-10"></i>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-black mb-6">Looking for a <span class="text-primary">Dev?</span></h2>
-                <p class="text-xl text-dark/40 font-bold mb-12 max-w-2xl mx-auto">
-                    View my full curriculum vitae to see my complete technical background, coursework, and academic
-                    competencies.
-                </p>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-8">
-                    <a href="assets/pdf/Mustafa_Khizar_CV.pdf" target="_blank"
-                        class="w-full sm:w-auto px-12 py-6 bg-dark text-white font-black rounded-2xl flex items-center justify-center hover:shadow-premium hover:-translate-y-1 transition-all active:scale-95">
-                        <i data-lucide="external-link" class="mr-4"></i> View CV
-                    </a>
-                </div>
-            </div>
+    <!-- What I Build -->
+    <section id="what" class="relative bg-darker text-white">
+        <!-- Section Header -->
+        <div class="absolute top-0 left-0 w-full z-10 pointer-events-none p-6 md:p-12 md:py-20 mix-blend-difference">
+            <h2 class="huge-text text-white opacity-20">WHAT I BUILD</h2>
         </div>
-    </section>
 
-    <section id="contact" class="py-20 md:py-32 px-4 md:px-6 relative">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 md:gap-20">
-                <div class="reveal-left">
-                    <h2 class="text-5xl md:text-7xl font-black mb-8 leading-tight">Let's <span class="text-primary">Build</span>
-                        Something.</h2>
-                    <p class="text-xl text-dark/60 font-medium mb-12">
-                        Whether it's a deep learning simulation or a high-impact mobile & web application, I'm ready to
-                        collaborate.
-                    </p>
-
-                    <div class="space-y-10">
-                        <div class="flex items-center gap-8 group">
-                            <div
-                                class="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                                <i data-lucide="mail" class="w-7 h-7"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs font-black text-dark/30 uppercase tracking-widest mb-1">Send an Email
-                                </p>
-                                <a href="mailto:gmkhizar9@gmail.com"
-                                    class="text-2xl font-black hover:text-primary transition-colors">gmkhizar9@gmail.com</a>
-                            </div>
+        <!-- Horizontal Scroll Wrapper -->
+        <div class="horizontal-scroll-wrapper" id="projects-wrapper">
+            <!-- 4 Projects -> 400vw -->
+            <div class="horizontal-scroll-content flex h-screen" id="projects-content" style="width: 400vw;">
+                
+                <!-- Project 1: Kyza -->
+                <div class="panel w-screen h-screen shrink-0 flex items-center justify-center p-6 md:p-12">
+                    <div class="w-full h-full md:w-[80vw] md:h-[80vh] bg-light rounded-3xl overflow-hidden relative group hover-target flex flex-col items-center justify-center border border-white/10 shadow-2xl">
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 z-0 scale-100 group-hover:scale-100 transition-transform duration-1000">
+                            <img src="https://image.thum.io/get/width/1200/crop/800/https://kyza.vercel.app" class="w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity duration-1000">
+                            <div class="absolute inset-0 bg-darker/80 group-hover:bg-darker/40 transition-colors duration-700"></div>
                         </div>
-                        <div class="flex items-center gap-8 group">
-                            <div
-                                class="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                                <i data-lucide="phone" class="w-7 h-7"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs font-black text-dark/30 uppercase tracking-widest mb-1">Direct Call /
-                                    Chat</p>
-                                <span class="text-2xl font-black text-dark hover:text-primary transition-colors">+92 320
-                                    9609931</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-8 group">
-                            <div
-                                class="w-16 h-16 bg-secondary/5 rounded-2xl flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all">
-                                <i data-lucide="map-pin" class="w-7 h-7"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs font-black text-dark/30 uppercase tracking-widest mb-1">Based In</p>
-                                <span class="text-2xl font-black text-dark">Lahore, Pakistan</span>
+                        
+                        
+                        <div class="relative z-20 p-8 md:p-16 w-full text-center">
+                            <span class="text-accent font-black uppercase tracking-[0.3em] text-xs md:text-sm mb-6 block drop-shadow-lg">AI Assistant Platform</span>
+                            <h3 class="text-5xl md:text-8xl font-display font-black tracking-tighter mb-12 drop-shadow-2xl">Kyza</h3>
+                            <div class="flex flex-wrap justify-center gap-6">
+                                <a href="https://kyza.vercel.app" target="_blank" class="bg-white text-darker px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors hover-target flex items-center gap-2">
+                                    <i data-lucide="external-link" class="w-5 h-5"></i> Live Preview
+                                </a>
+                                <a href="https://github.com/KhizarDoingProgramming/KYZA" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors hover-target flex items-center gap-2 backdrop-blur-sm">
+                                    <i data-lucide="github" class="w-5 h-5"></i> Source Code
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal-right">
-                    <form id="contact-form"
-                        class="space-y-6 bg-white p-8 md:p-12 rounded-[3rem] border border-gray-100 shadow-premium">
-                        <div class="grid sm:grid-cols-2 gap-6">
-                            <div class="space-y-3">
-                                <label class="text-[10px] font-black text-dark/30 uppercase tracking-widest ml-1">Full
-                                    Name</label>
-                                <input type="text" name="name" required placeholder="Mustafa Khizar"
-                                    class="w-full px-6 py-5 bg-light-gray border border-transparent rounded-2xl focus:outline-none focus:border-primary focus:bg-white transition-all font-bold">
-                            </div>
-                            <div class="space-y-3">
-                                <label class="text-[10px] font-black text-dark/30 uppercase tracking-widest ml-1">Email
-                                    Address</label>
-                                <input type="email" name="email" required placeholder="mustafa@example.com"
-                                    class="w-full px-6 py-5 bg-light-gray border border-transparent rounded-2xl focus:outline-none focus:border-primary focus:bg-white transition-all font-bold">
+                <!-- Project 2: MUSTAV -->
+                <div class="panel w-screen h-screen shrink-0 flex items-center justify-center p-6 md:p-12">
+                    <div class="w-full h-full md:w-[80vw] md:h-[80vh] bg-light rounded-3xl overflow-hidden relative group hover-target flex items-center justify-center border border-white/10 shadow-2xl">
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 z-0 scale-100 group-hover:scale-100 transition-transform duration-1000">
+                            <img src="assets/images/mustav-screen.png" class="w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity duration-1000">
+                            <div class="absolute inset-0 bg-darker/80 group-hover:bg-darker/40 transition-colors duration-700"></div>
+                        </div>
+                        
+                        <div class="relative z-20 p-8 md:p-16 w-full text-center">
+                            <span class="text-accent font-black uppercase tracking-[0.3em] text-xs md:text-sm mb-6 block drop-shadow-lg">Full-Stack E-Commerce</span>
+                            <h3 class="text-5xl md:text-8xl font-display font-black tracking-tighter mb-12 drop-shadow-2xl">MUSTAV</h3>
+                            <div class="flex flex-wrap justify-center gap-6">
+                                <a href="https://mustav.vercel.app" target="_blank" class="bg-white text-darker px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors hover-target flex items-center gap-2">
+                                    <i data-lucide="external-link" class="w-5 h-5"></i> Live Preview
+                                </a>
+                                <a href="https://github.com/KhizarDoingProgramming/MUSTAV" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors hover-target flex items-center gap-2 backdrop-blur-sm">
+                                    <i data-lucide="github" class="w-5 h-5"></i> Source Code
+                                </a>
                             </div>
                         </div>
-                        <div class="space-y-3">
-                            <label class="text-[10px] font-black text-dark/30 uppercase tracking-widest ml-1">Your
-                                Message</label>
-                            <textarea name="message" required rows="5" placeholder="Tell me about your project..."
-                                class="w-full px-6 py-5 bg-light-gray border border-transparent rounded-2xl focus:outline-none focus:border-primary focus:bg-white transition-all font-bold resize-none"></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full py-6 bg-primary text-white font-black rounded-2xl hover:shadow-premium hover:-translate-y-1 transition-all active:scale-95 text-lg">
-                            Send Message
-                        </button>
-                    </form>
+                    </div>
                 </div>
+
+                <!-- Project 3: Khizex -->
+                <div class="panel w-screen h-screen shrink-0 flex items-center justify-center p-6 md:p-12">
+                    <div class="w-full h-full md:w-[80vw] md:h-[80vh] bg-light rounded-3xl overflow-hidden relative group hover-target flex items-center justify-center border border-white/10 shadow-2xl">
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 z-0 scale-100 group-hover:scale-100 transition-transform duration-1000">
+                            <img src="https://image.thum.io/get/width/1200/crop/800/https://khizex.web.app" class="w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity duration-1000">
+                            <div class="absolute inset-0 bg-darker/80 group-hover:bg-darker/40 transition-colors duration-700"></div>
+                        </div>
+                        
+                        <div class="relative z-20 p-8 md:p-16 w-full text-center">
+                            <span class="text-accent font-black uppercase tracking-[0.3em] text-xs md:text-sm mb-6 block drop-shadow-lg">Architecture & Design Agency</span>
+                            <h3 class="text-5xl md:text-8xl font-display font-black tracking-tighter mb-12 drop-shadow-2xl">Khizex</h3>
+                            <div class="flex flex-wrap justify-center gap-6">
+                                <a href="https://khizex.web.app" target="_blank" class="bg-white text-darker px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors hover-target flex items-center gap-2">
+                                    <i data-lucide="external-link" class="w-5 h-5"></i> Live Preview
+                                </a>
+                                <a href="https://github.com/KhizarDoingProgramming/KHIZEX" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors hover-target flex items-center gap-2 backdrop-blur-sm">
+                                    <i data-lucide="github" class="w-5 h-5"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: LifeConvo -->
+                <div class="panel w-screen h-screen shrink-0 flex items-center justify-center p-6 md:p-12">
+                    <div class="w-full h-full md:w-[80vw] md:h-[80vh] bg-light rounded-3xl overflow-hidden relative group hover-target flex items-center justify-center border border-white/10 shadow-2xl">
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 z-0 scale-100 group-hover:scale-100 transition-transform duration-1000">
+                            <img src="assets/images/lifeconvo-screen.png" class="w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity duration-1000">
+                            <div class="absolute inset-0 bg-darker/80 group-hover:bg-darker/40 transition-colors duration-700"></div>
+                        </div>
+                        
+                        <div class="relative z-20 p-8 md:p-16 w-full text-center">
+                            <span class="text-accent font-black uppercase tracking-[0.3em] text-xs md:text-sm mb-6 block drop-shadow-lg">Real-Time Community Platform</span>
+                            <h3 class="text-5xl md:text-8xl font-display font-black tracking-tighter mb-12 drop-shadow-2xl">LifeConvo</h3>
+                            <div class="flex flex-wrap justify-center gap-6">
+                                <a href="https://lifeconvo.vercel.app" target="_blank" class="bg-white text-darker px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors hover-target flex items-center gap-2">
+                                    <i data-lucide="external-link" class="w-5 h-5"></i> Live Preview
+                                </a>
+                                <a href="https://github.com/KhizarDoingProgramming/LIFE-CONVO" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors hover-target flex items-center gap-2 backdrop-blur-sm">
+                                    <i data-lucide="github" class="w-5 h-5"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <footer class="py-20 px-6 border-t border-gray-50">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:p-10">
-            <a href="index.html" class="text-3xl font-black tracking-tighter text-dark">
-                MUSTAFA<span class="text-primary">.</span>
+    <!-- Footer (Contact) -->
+    <footer id="contact" class="bg-accent text-white py-32 px-6 md:px-12 relative overflow-hidden">
+        <!-- Abstract background graphic -->
+        <i data-lucide="mail" class="absolute -right-20 -bottom-20 w-[50vw] h-[50vw] text-white/10 opacity-30 transform rotate-12"></i>
+        
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <h2 class="text-sm font-black uppercase tracking-[0.5em] mb-12">Let's do this together</h2>
+            <a href="mailto:gmkhizar9@gmail.com" class="huge-text hover-target inline-block hover:text-darker transition-colors mb-12 break-all leading-none">
+                gmkhizar9<br>@gmail.com
             </a>
-            <div class="flex gap-6 md:p-10 text-[10px] font-black uppercase tracking-[0.2em] text-dark/40">
-                <a href="https://github.com/KhizarDoingProgramming" class="hover:text-primary transition-colors"
-                    target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/mustafa-khizar/" class="hover:text-primary transition-colors"
-                    target="_blank">LinkedIn</a>
-                <a href="https://www.instagram.com/khiizeee/" class="hover:text-primary transition-colors"
-                    target="_blank">Instagram</a>
+
+            <div class="mb-20">
+                <a href="assets/pdf/Mustafa_Khizar_CV.pdf" target="_blank" class="inline-flex items-center gap-3 bg-darker text-white px-10 py-5 rounded-full text-sm font-black uppercase tracking-[0.2em] hover:bg-white hover:text-darker transition-colors hover-target shadow-2xl drop-shadow-2xl">
+                    <i data-lucide="file-text" class="w-5 h-5"></i> VIEW CV
+                </a>
             </div>
-            <p class="text-xs font-bold text-dark/30">
-                &copy; 2026 Ghulam Mustafa Khizar. All rights reserved.
-            </p>
+            
+            <div class="grid md:grid-cols-3 gap-12 text-lg font-bold font-display uppercase tracking-widest mt-24 border-t border-white/20 pt-12">
+                <div>
+                    <p class="text-darker mb-2">Location</p>
+                    <p>Lahore, Pakistan</p>
+                </div>
+                <div>
+                    <p class="text-darker mb-2">Phone</p>
+                    <p>+92 320 9609931</p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <p class="text-darker mb-2">Social</p>
+                    <div class="flex justify-center gap-6">
+                        <a href="https://github.com/KhizarDoingProgramming" target="_blank" class="hover:text-darker transition-colors hover-target">Github</a>
+                        <a href="https://www.linkedin.com/in/mustafa-khizar/" target="_blank" class="hover:text-darker transition-colors hover-target">LinkedIn</a>
+                        <a href="https://www.instagram.com/khiizeee/" target="_blank" class="hover:text-darker transition-colors hover-target">Instagram</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <style>
+        @keyframes scroll-down {
+            0% { transform: translateY(-100%); }
+            50% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+    </style>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="script.js"></script>
-</body>
+    <script>
+        lucide.createIcons();
 
+        // 1. Custom Cursor Logic
+        const cursor = document.getElementById('custom-cursor');
+        const hoverTargets = document.querySelectorAll('.hover-target, a, button');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            target.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // 2. Preloader & Initial Animations
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline();
+            
+            // Slide preloader up
+            tl.to('#preloader', {
+                yPercent: -100,
+                duration: 1,
+                ease: "power4.inOut",
+                delay: 0.5
+            })
+            // Reveal Hero image
+            .from('.hero-img-container img', {
+                scale: 1.2,
+                duration: 1.5,
+                ease: "power3.out"
+            }, "-=0.5")
+            // Reveal Hero Text
+            .to('.hero-text', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "expo.out"
+            }, "-=1");
+        });
+
+        // 3. Menu Overlay Logic
+        const menuOverlay = document.getElementById('menu-overlay');
+        const openBtn = document.getElementById('open-menu');
+        const closeBtn = document.getElementById('close-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const openMenu = () => {
+            if(openBtn) {
+                const icon = openBtn.querySelector('svg') || openBtn.querySelector('i');
+                if(icon) {
+                    icon.style.transition = 'transform 0.4s cubic-bezier(0.77, 0, 0.175, 1)';
+                    icon.style.transform = 'rotate(180deg) scale(0.5)';
+                }
+            }
+            
+            setTimeout(() => {
+                menuOverlay.classList.remove('pointer-events-none');
+                menuOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+                gsap.fromTo('.menu-link', 
+                    { y: 50, opacity: 0 }, 
+                    { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, delay: 0.3, ease: "power3.out" }
+                );
+            }, 300);
+        };
+
+        const closeMenu = () => {
+            menuOverlay.classList.add('pointer-events-none');
+            menuOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+            
+            if(openBtn) {
+                const icon = openBtn.querySelector('svg') || openBtn.querySelector('i');
+                if(icon) {
+                    icon.style.transform = 'rotate(0deg) scale(1)';
+                }
+            }
+        };
+
+        if(openBtn) openBtn.addEventListener('click', openMenu);
+        if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+        navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // 4. GSAP Scroll Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('.reveal-up').forEach(element => {
+            gsap.fromTo(element, 
+                { opacity: 0, y: 50 },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1, 
+                    ease: "power3.out", 
+                    scrollTrigger: { 
+                        trigger: element, 
+                        start: "top 80%", 
+                        toggleActions: "play none none reverse" 
+                    } 
+                }
+            );
+        });
+
+        // 5. Horizontal Scroll Section
+        const mm = gsap.matchMedia();
+
+        mm.add("(min-width: 768px)", () => {
+            const wrapper = document.querySelector("#projects-wrapper");
+            const content = document.querySelector("#projects-content");
+            
+            if(wrapper && content) {
+                const getScrollAmount = () => -(content.scrollWidth - window.innerWidth);
+
+                const tween = gsap.to(content, {
+                    x: getScrollAmount,
+                    ease: "none"
+                });
+
+                ScrollTrigger.create({
+                    trigger: wrapper,
+                    start: "top top",
+                    end: () => `+=${getScrollAmount() * -1}`,
+                    pin: true,
+                    animation: tween,
+                    scrub: 1,
+                    invalidateOnRefresh: true
+                });
+                
+                return () => { tween.kill(); };
+            }
+        });
+
+        mm.add("(max-width: 767px)", () => {
+            const content = document.querySelector("#projects-content");
+            if(content) {
+                content.style.flexDirection = "column";
+                content.style.width = "100%";
+                content.style.height = "auto";
+                
+                const panels = document.querySelectorAll(".panel");
+                panels.forEach(p => {
+                    p.style.width = "100%";
+                    p.style.height = "60vh"; 
+                    p.style.marginBottom = "2rem";
+                });
+                
+                const wrapper = document.querySelector("#projects-wrapper");
+                wrapper.style.height = "auto";
+                wrapper.style.overflow = "visible";
+            }
+        });
+
+    </script>
+</body>
 </html>

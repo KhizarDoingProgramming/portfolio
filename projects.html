@@ -1,567 +1,353 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghulam Mustafa Khizar | Project Showcase</title>
-    <meta name="description" content="Dedicated projects portfolio showcasing machine learning systems, full-stack applications, and low-level processors built by Ghulam Mustafa Khizar.">
+    <title>All Projects | Ghulam Mustafa Khizar</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0066FF',
-                        secondary: '#6366f1',
-                        dark: '#0f172a',
-                        light: '#ffffff',
-                        'light-gray': '#f8fafc',
-                        accent: {
-                            blue: '#3b82f6',
-                            indigo: '#4f46e5',
-                        }
+                        accent: '#0284c7', /* Updated Darker Sky Blue */
+                        dark: '#0a0a0a',
+                        darker: '#000000',
+                        light: '#1f1f1f',
+                        white: '#ffffff'
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         display: ['Outfit', 'sans-serif'],
-                    },
-                    borderRadius: {
-                        '4xl': '2rem',
-                        '5xl': '2.5rem',
-                    },
-                    boxShadow: {
-                        'premium': '0 20px 50px -12px rgba(0, 0, 0, 0.08)',
-                        'glow': '0 0 20px rgba(0, 102, 255, 0.15)',
                     }
                 }
             }
         }
     </script>
     
-    <link rel="icon" href="favicon.png" type="image/png">
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" href="assets/images/favicon.jpeg" type="image/jpeg">
 </head>
-<body class="bg-light text-dark font-sans selection:bg-primary/10 overflow-x-hidden pt-20">
+<body class="bg-darker text-white font-sans overflow-x-hidden">
 
-    <div class="fixed inset-0 z-[-1] pointer-events-none opacity-40">
-        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/10 rounded-full blur-[120px]"></div>
-    </div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
 
-    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-gray-100 transition-all duration-500" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="text-2xl font-black tracking-tighter text-dark hover:scale-105 transition-transform">
-                MUSTAFA<span class="text-primary">.</span>
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 px-6 py-8 md:px-12 md:py-10 flex items-center justify-between text-white bg-darker/80 backdrop-blur-md">
+        <a href="index.html" class="hover-target flex items-center gap-4">
+            <img src="assets/images/logo.png" alt="Logo" class="h-10 md:h-12 w-auto max-w-[200px] object-contain">
+        </a>
+        <div class="flex items-center gap-6">
+            <a href="index.html#contact" class="hidden md:flex bg-white text-darker px-8 py-3 rounded-full font-black text-xs uppercase tracking-widest hover:bg-accent hover:text-white transition-colors hover-target">Let's Talk</a>
+            <a href="index.html" class="p-2 hover:text-accent transition-colors hover-target cursor-pointer relative z-50">
+                <i data-lucide="arrow-left" class="w-10 h-10"></i>
             </a>
-            
-            <ul class="hidden md:flex items-center space-x-8 text-[13px] font-bold uppercase tracking-widest text-dark/60">
-                <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
-                <li><a href="about.html" class="hover:text-primary transition-colors">About</a></li>
-                <li><a href="expertise.html" class="hover:text-primary transition-colors">Expertise</a></li>
-                <li><a href="projects.html" class="text-primary font-black">Work</a></li>
-                <li><a href="contact.html" class="bg-dark text-white px-6 py-3 rounded-full hover:bg-primary transition-all hover:shadow-glow active:scale-95">Let's Talk</a></li>
-            </ul>
-            
-            <button class="md:hidden p-2 text-dark hover:text-primary" id="menu-toggle">
-                <i data-lucide="menu"></i>
-            </button>
         </div>
-    </nav>
-
-    <header class="py-20 px-6 max-w-7xl mx-auto text-center space-y-6">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-extrabold uppercase tracking-widest">
-            <i data-lucide="folder-git-2" class="w-4 h-4"></i> Project Repository
-        </div>
-        <h1 class="text-6xl md:text-7xl font-black tracking-tight text-dark leading-none">
-            Selected <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Works</span>
-        </h1>
-        <p class="text-xl text-dark/60 max-w-2xl mx-auto font-medium">
-            Explore my machine learning classifiers, full-stack platforms, design suites, and low-level computer architecture simulators.
-        </p>
     </header>
 
-    <section class="pb-32 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-wrap justify-center gap-4 mb-16" id="filters-container">
-            <button data-filter="all" class="filter-btn px-6 py-3 rounded-full font-bold text-sm bg-dark text-white shadow-premium transition-all active:scale-95">
-                All Systems
-            </button>
-            <button data-filter="ai" class="filter-btn px-6 py-3 rounded-full font-bold text-sm bg-white border border-gray-200 text-dark/60 hover:text-dark hover:border-gray-300 transition-all active:scale-95">
-                AI & Machine Learning
-            </button>
-            <button data-filter="web" class="filter-btn px-6 py-3 rounded-full font-bold text-sm bg-white border border-gray-200 text-dark/60 hover:text-dark hover:border-gray-300 transition-all active:scale-95">
-                Full-Stack Web
-            </button>
-            <button data-filter="systems" class="filter-btn px-6 py-3 rounded-full font-bold text-sm bg-white border border-gray-200 text-dark/60 hover:text-dark hover:border-gray-300 transition-all active:scale-95">
-                Systems & Assembly
-            </button>
+    <main class="pt-48 pb-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="mb-24 reveal-up">
+            <h1 class="huge-text text-white leading-[0.9]">ALL<br>PROJECTS.</h1>
         </div>
 
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-
-            <div data-category="web" class="project-card group reveal-up flex flex-col h-full" style="display: flex;">
-                <div class="relative aspect-video rounded-[3rem] overflow-hidden mb-8 shadow-premium bg-dark">
-                    <div class="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-6 z-20">
-                        <button onclick="openModal('campusbook')" class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-dark hover:scale-110 transition-transform shadow-glow">
-                            <i data-lucide="maximize-2"></i>
-                        </button>
-                    </div>
-                    <div class="absolute inset-0 w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-indigo-950 to-dark z-10 transition-transform duration-700 group-hover:scale-105">
-                        <i data-lucide="users" class="w-10 h-10 text-primary"></i>
-                        <div>
-                            <span class="text-[10px] uppercase tracking-widest text-primary font-black">Featured Web App</span>
-                            <h4 class="text-2xl font-black text-white mt-1">CampusBook Social Network</h4>
-                        </div>
-                    </div>
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <!-- 1. Kyza -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up relative">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://image.thum.io/get/width/1200/crop/800/https://kyza.vercel.app" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700">
                 </div>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">PHP</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">React</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">MySQL</span>
-                </div>
-                <h3 class="text-2xl font-black mb-3 text-dark group-hover:text-primary transition-colors">CampusBook Social Network</h3>
-                <p class="text-dark/60 text-sm font-medium leading-relaxed mb-6 flex-grow">
-                    A full-fledged university life social media platform featuring dynamic React story viewer components, dynamic live chat UI, and secure database seeds.
-                </p>
-                <div class="mt-auto pt-4 border-t border-gray-100">
-                    <button onclick="openModal('campusbook')" class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary hover:text-secondary transition-colors group/btn">
-                        View Details <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
-                    </button>
+                <div class="p-8 relative z-10 flex flex-col h-full justify-between min-h-[300px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">Kyza</h3>
+                        <p class="text-white/60 mb-8">My featured showcase and best project.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://kyza.vercel.app" target="_blank" class="bg-white text-darker px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors flex items-center gap-2"><i data-lucide="external-link" class="w-4 h-4"></i> Live Preview</a>
+                        <a href="https://github.com/KhizarDoingProgramming/kyza" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source</a>
+                    </div>
                 </div>
             </div>
 
-            <div data-category="ai" class="project-card group reveal-up flex flex-col h-full" style="display: flex;">
-                <div class="relative aspect-video rounded-[3rem] overflow-hidden mb-8 shadow-premium bg-dark">
-                    <div class="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-6 z-20">
-                        <button onclick="openModal('flowers')" class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-dark hover:scale-110 transition-transform shadow-glow">
-                            <i data-lucide="maximize-2"></i>
-                        </button>
-                    </div>
-                    <div class="absolute inset-0 w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-purple-950 to-dark z-10 transition-transform duration-700 group-hover:scale-105">
-                        <i data-lucide="flower" class="w-10 h-10 text-indigo-400"></i>
-                        <div>
-                            <span class="text-[10px] uppercase tracking-widest text-indigo-400 font-black">Computer Vision</span>
-                            <h4 class="text-2xl font-black text-white mt-1">Flower Classification</h4>
-                        </div>
-                    </div>
+            <!-- 2. MUSTAV -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up relative">
+                <div class="absolute inset-0 z-0">
+                    <img src="assets/images/mustav-screen.png" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700">
                 </div>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">TensorFlow</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">Python</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">CV</span>
-                </div>
-                <h3 class="text-2xl font-black mb-3 text-dark group-hover:text-primary transition-colors">Flower Classification</h3>
-                <p class="text-dark/60 text-sm font-medium leading-relaxed mb-6 flex-grow">
-                    Machine Learning computer vision system utilizing TensorFlow neural networks to identify and classify diverse botanical classes from visual datasets.
-                </p>
-                <div class="mt-auto pt-4 border-t border-gray-100">
-                    <button onclick="openModal('flowers')" class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary hover:text-secondary transition-colors group/btn">
-                        View Details <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
-                    </button>
+                <div class="p-8 relative z-10 flex flex-col h-full justify-between min-h-[300px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">MUSTAV</h3>
+                        <p class="text-white/60 mb-8">Full stack ecommerce site.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://mustav.vercel.app" target="_blank" class="bg-white text-darker px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors flex items-center gap-2"><i data-lucide="external-link" class="w-4 h-4"></i> Live Preview</a>
+                        <a href="https://github.com/KhizarDoingProgramming/MUSTAV" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source</a>
+                    </div>
                 </div>
             </div>
 
-            <div data-category="web" class="project-card group reveal-up flex flex-col h-full" style="display: flex;">
-                <div class="relative aspect-video rounded-[3rem] overflow-hidden mb-8 shadow-premium bg-dark">
-                    <div class="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-6 z-20">
-                        <button onclick="openModal('smokers')" class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-dark hover:scale-110 transition-transform shadow-glow">
-                            <i data-lucide="maximize-2"></i>
-                        </button>
-                    </div>
-                    <div class="absolute inset-0 w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-blue-950 to-dark z-10 transition-transform duration-700 group-hover:scale-105">
-                        <i data-lucide="shopping-bag" class="w-10 h-10 text-secondary"></i>
-                        <div>
-                            <span class="text-[10px] uppercase tracking-widest text-secondary font-black">E-Commerce Platform</span>
-                            <h4 class="text-2xl font-black text-white mt-1">Smoker's Hub</h4>
-                        </div>
-                    </div>
+            <!-- 3. Khizex -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up relative">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://image.thum.io/get/width/1200/crop/800/https://khizex.web.app" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700">
                 </div>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">Modular PHP</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">MySQL</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">UI</span>
-                </div>
-                <h3 class="text-2xl font-black mb-3 text-dark group-hover:text-primary transition-colors">Smoker's Hub</h3>
-                <p class="text-dark/60 text-sm font-medium leading-relaxed mb-6 flex-grow">
-                    Academic web application migrating legacy pages to clean modular PHP architectures, integrating session authentications and relational catalogs.
-                </p>
-                <div class="mt-auto pt-4 border-t border-gray-100">
-                    <button onclick="openModal('smokers')" class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary hover:text-secondary transition-colors group/btn">
-                        View Details <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
-                    </button>
+                <div class="p-8 relative z-10 flex flex-col h-full justify-between min-h-[300px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">Khizex</h3>
+                        <p class="text-white/60 mb-8">Modern architectural web experience deployed across web.app hosting.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://khizex.web.app" target="_blank" class="bg-white text-darker px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors flex items-center gap-2"><i data-lucide="external-link" class="w-4 h-4"></i> Live Preview</a>
+                        <a href="https://github.com/KhizarDoingProgramming/KHIZEX" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source</a>
+                    </div>
                 </div>
             </div>
 
-            <div data-category="ai" class="project-card group reveal-up flex flex-col h-full" style="display: flex;">
-                <div class="relative aspect-video rounded-[3rem] overflow-hidden mb-8 shadow-premium bg-dark">
-                    <div class="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-6 z-20">
-                        <button onclick="openModal('heart')" class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-dark hover:scale-110 transition-transform shadow-glow">
-                            <i data-lucide="maximize-2"></i>
-                        </button>
-                    </div>
-                    <div class="absolute inset-0 w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-rose-950 to-dark z-10 transition-transform duration-700 group-hover:scale-105">
-                        <i data-lucide="activity" class="w-10 h-10 text-rose-400"></i>
-                        <div>
-                            <span class="text-[10px] uppercase tracking-widest text-rose-400 font-black">Health Predictor</span>
-                            <h4 class="text-2xl font-black text-white mt-1">Heart Disease Predictor</h4>
-                        </div>
-                    </div>
+            <!-- 4. LifeConvo -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up relative">
+                <div class="absolute inset-0 z-0">
+                    <img src="assets/images/lifeconvo-screen.png" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700">
                 </div>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">Python</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">Pandas</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">Scikit-Learn</span>
-                </div>
-                <h3 class="text-2xl font-black mb-3 text-dark group-hover:text-primary transition-colors">Heart Disease Predictor</h3>
-                <p class="text-dark/60 text-sm font-medium leading-relaxed mb-6 flex-grow">
-                    Predictive medical modeling utilizing classifications to diagnose and evaluate cardiac risks based on clinical statistics.
-                </p>
-                <div class="mt-auto pt-4 border-t border-gray-100">
-                    <button onclick="openModal('heart')" class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary hover:text-secondary transition-colors group/btn">
-                        View Details <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
-                    </button>
+                <div class="p-8 relative z-10 flex flex-col h-full justify-between min-h-[300px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">LifeConvo</h3>
+                        <p class="text-white/60 mb-8">Real-time chat platform with many JS animations.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://lifeconvo.vercel.app" target="_blank" class="bg-white text-darker px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors flex items-center gap-2"><i data-lucide="external-link" class="w-4 h-4"></i> Live Preview</a>
+                        <a href="https://github.com/KhizarDoingProgramming/LIFE-CONVO" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source</a>
+                    </div>
                 </div>
             </div>
 
-            <div data-category="systems" class="project-card group reveal-up flex flex-col h-full" style="display: flex;">
-                <div class="relative aspect-video rounded-[3rem] overflow-hidden mb-8 shadow-premium bg-dark">
-                    <div class="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-6 z-20">
-                        <button onclick="openModal('banking')" class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-dark hover:scale-110 transition-transform shadow-glow">
-                            <i data-lucide="maximize-2"></i>
-                        </button>
-                    </div>
-                    <div class="absolute inset-0 w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-emerald-950 to-dark z-10 transition-transform duration-700 group-hover:scale-105">
-                        <i data-lucide="landmark" class="w-10 h-10 text-emerald-400"></i>
-                        <div>
-                            <span class="text-[10px] uppercase tracking-widest text-emerald-400 font-black">Low-Level Security</span>
-                            <h4 class="text-2xl font-black text-white mt-1">Banking System</h4>
-                        </div>
-                    </div>
+            
+            <!-- 5. MUSTAFA-MOVES -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up relative">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://opengraph.githubassets.com/1/KhizarDoingProgramming/MUSTAFA-MOVES" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700">
                 </div>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">C++</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">Assembly</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">File I/O</span>
-                </div>
-                <h3 class="text-2xl font-black mb-3 text-dark group-hover:text-primary transition-colors">Banking System</h3>
-                <p class="text-dark/60 text-sm font-medium leading-relaxed mb-6 flex-grow">
-                    A robust accounting application featuring solid transaction security logs, multi-tier authentications, and secure local file streams.
-                </p>
-                <div class="mt-auto pt-4 border-t border-gray-100">
-                    <button onclick="openModal('banking')" class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary hover:text-secondary transition-colors group/btn">
-                        View Details <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
-                    </button>
+                <div class="p-8 flex flex-col h-full justify-between min-h-[300px] relative z-10">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">MUSTAFA MOVES</h3>
+                        <p class="text-white/60 mb-8">Previous iteration of my personal portfolio and web presence.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" target="_blank" class="bg-white text-darker px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors flex items-center gap-2"><i data-lucide="external-link" class="w-4 h-4"></i> Live Preview</a>
+                        <a href="https://github.com/KhizarDoingProgramming/MUSTAFA-MOVES" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                    </div>
                 </div>
             </div>
 
-            <div data-category="systems" class="project-card group reveal-up flex flex-col h-full" style="display: flex;">
-                <div class="relative aspect-video rounded-[3rem] overflow-hidden mb-8 shadow-premium bg-dark">
-                    <div class="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-6 z-20">
-                        <button onclick="openModal('cpu')" class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-dark hover:scale-110 transition-transform shadow-glow">
-                            <i data-lucide="maximize-2"></i>
-                        </button>
+            <!-- 6. MSTFA-AI -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up relative">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://image.thum.io/get/width/1200/https://mstfa-ai.vercel.app" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700">
+                </div>
+                <div class="p-8 flex flex-col h-full justify-between min-h-[300px] relative z-10">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">MSTFA-AI</h3>
+                        <p class="text-white/60 mb-8">Advanced artificial intelligence integration and web application.</p>
                     </div>
-                    <div class="absolute inset-0 w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-slate-800 to-dark z-10 transition-transform duration-700 group-hover:scale-105">
-                        <i data-lucide="cpu" class="w-10 h-10 text-slate-400"></i>
-                        <div>
-                            <span class="text-[10px] uppercase tracking-widest text-slate-400 font-black">COAL Simulator</span>
-                            <h4 class="text-2xl font-black text-white mt-1">Mini CPU Simulator</h4>
-                        </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://mstfa-ai.vercel.app" target="_blank" class="bg-white text-darker px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors flex items-center gap-2"><i data-lucide="external-link" class="w-4 h-4"></i> Live Preview</a>
+                        <a href="https://github.com/KhizarDoingProgramming/MSTFA-AI" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
                     </div>
                 </div>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">Assembly</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">Architecture</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">C++</span>
-                </div>
-                <h3 class="text-2xl font-black mb-3 text-dark group-hover:text-primary transition-colors">Mini CPU Simulator</h3>
-                <p class="text-dark/60 text-sm font-medium leading-relaxed mb-6 flex-grow">
-                    Simulator showing assembly execution cycles, managing instruction pipelines, programmatic index shifting, and register transformations.
-                </p>
-                <div class="mt-auto pt-4 border-t border-gray-100">
-                    <button onclick="openModal('cpu')" class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary hover:text-secondary transition-colors group/btn">
-                        View Details <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
-                    </button>
+            </div>
+<!-- 7. CampusBook -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up">
+                <div class="p-8 flex flex-col h-full justify-between min-h-[250px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">CampusBook</h3>
+                        <p class="text-white/60 mb-8">University social media platform with React story viewer and chat.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/KhizarDoingProgramming/CampusBook" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                    </div>
                 </div>
             </div>
 
-            <div data-category="ai" class="project-card group reveal-up flex flex-col h-full" style="display: flex;">
-                <div class="relative aspect-video rounded-[3rem] overflow-hidden mb-8 shadow-premium bg-dark">
-                    <div class="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-6 z-20">
-                        <button onclick="openModal('spam')" class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-dark hover:scale-110 transition-transform shadow-glow">
-                            <i data-lucide="maximize-2"></i>
-                        </button>
+            <!-- 6. Flower CV -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up">
+                <div class="p-8 flex flex-col h-full justify-between min-h-[250px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">Flower CV</h3>
+                        <p class="text-white/60 mb-8">TensorFlow computer vision model for botanical classification.</p>
                     </div>
-                    <div class="absolute inset-0 w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-orange-950 to-dark z-10 transition-transform duration-700 group-hover:scale-105">
-                        <i data-lucide="mail-warning" class="w-10 h-10 text-orange-400"></i>
-                        <div>
-                            <span class="text-[10px] uppercase tracking-widest text-orange-400 font-black">NLP Classifier</span>
-                            <h4 class="text-2xl font-black text-white mt-1">Spam Classifier</h4>
-                        </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/KhizarDoingProgramming/Flower-Prediction" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
                     </div>
-                </div>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">Python</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">NLP</span>
-                        <span class="px-4 py-1.5 bg-dark/5 border border-dark/10 backdrop-blur-md rounded-full text-[10px] font-black text-dark uppercase tracking-widest">Scikit-Learn</span>
-                </div>
-                <h3 class="text-2xl font-black mb-3 text-dark group-hover:text-primary transition-colors">Spam Classifier</h3>
-                <p class="text-dark/60 text-sm font-medium leading-relaxed mb-6 flex-grow">
-                    A Natural Language Processing classification model tokenizing text streams to filter spam communications with high accuracy rates.
-                </p>
-                <div class="mt-auto pt-4 border-t border-gray-100">
-                    <button onclick="openModal('spam')" class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary hover:text-secondary transition-colors group/btn">
-                        View Details <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
-                    </button>
                 </div>
             </div>
+
+            <!-- 7. Smoker's Hub -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up">
+                <div class="p-8 flex flex-col h-full justify-between min-h-[250px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">Smoker's Hub</h3>
+                        <p class="text-white/60 mb-8">E-commerce backend featuring modular PHP architecture and secure auth.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/KhizarDoingProgramming/SmokersHub" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Heart Disease Predictor -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up">
+                <div class="p-8 flex flex-col h-full justify-between min-h-[250px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">Heart Predictor</h3>
+                        <p class="text-white/60 mb-8">Predictive medical modeling utilizing classifications to diagnose risks.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/KhizarDoingProgramming/heart-disease-predictor" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Banking System -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up">
+                <div class="p-8 flex flex-col h-full justify-between min-h-[250px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">Banking System</h3>
+                        <p class="text-white/60 mb-8">Accounting app with transaction security and multi-tier authentication.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/KhizarDoingProgramming/Banking-system-asm" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. Mini CPU Simulator -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up">
+                <div class="p-8 flex flex-col h-full justify-between min-h-[250px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">CPU Simulator</h3>
+                        <p class="text-white/60 mb-8">Assembly execution cycles visualization, managing instruction pipelines.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/KhizarDoingProgramming/mini-cpu-simulator" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. Spam Classifier -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up">
+                <div class="p-8 flex flex-col h-full justify-between min-h-[250px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">Spam Classifier</h3>
+                        <p class="text-white/60 mb-8">NLP classification model tokenizing text streams for high accuracy filtering.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/KhizarDoingProgramming/spam-email-classifier" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. AlgoVisualizer -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up">
+                <div class="p-8 flex flex-col h-full justify-between min-h-[250px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">AlgoVisualizer</h3>
+                        <p class="text-white/60 mb-8">Interactive sorting and pathfinding algorithm visualizer.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/KhizarDoingProgramming/Orbit-Graph-CPP-Code" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13. EchoStream -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up">
+                <div class="p-8 flex flex-col h-full justify-between min-h-[250px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">EchoStream</h3>
+                        <p class="text-white/60 mb-8">Real-time WebRTC based video streaming web application.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/KhizarDoingProgramming/FlyRank-ai-streaming-chat" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14. Portfolio 1.0 -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up">
+                <div class="p-8 flex flex-col h-full justify-between min-h-[250px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">Portfolio v1</h3>
+                        <p class="text-white/60 mb-8">The first iteration of my personal portfolio and blog.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/KhizarDoingProgramming/MUSTAFA-MOVES" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 15. NeuralNet Sandbox -->
+            <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up">
+                <div class="p-8 flex flex-col h-full justify-between min-h-[250px]">
+                    <div>
+                        <h3 class="text-3xl font-display font-black mb-2">Neural Sandbox</h3>
+                        <p class="text-white/60 mb-8">A deep learning playground for configuring PyTorch models.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/KhizarDoingProgramming/Ai-Resume-Screener" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </main>
 
-    <div id="project-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-dark/40 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-500">
-        <div class="bg-white border border-gray-100 rounded-[3.5rem] shadow-premium max-w-2xl w-full p-12 relative scale-95 transition-transform duration-500 m-6 max-h-[85vh] overflow-y-auto">
-            <button onclick="closeModal()" class="absolute top-8 right-8 w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-gray-50 text-dark hover:scale-105 active:scale-95 transition-all">
-                <i data-lucide="x"></i>
-            </button>
-            <div id="modal-content">
-            </div>
-        </div>
-    </div>
-
-    <footer class="py-20 px-6 border-t border-gray-50 bg-white">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-            <a href="index.html" class="text-3xl font-black tracking-tighter text-dark">
-                MUSTAFA<span class="text-primary">.</span>
-            </a>
-            <div class="flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-dark/40">
-                <a href="https://github.com/KhizarDoingProgramming" class="hover:text-primary transition-colors" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/mustafa-khizar/" class="hover:text-primary transition-colors" target="_blank">LinkedIn</a>
-                <a href="https://www.instagram.com/khiizeee/" class="hover:text-primary transition-colors" target="_blank">Instagram</a>
-            </div>
-            <p class="text-xs font-bold text-dark/30">
-                &copy; 2026 Ghulam Mustafa Khizar. All rights reserved.
-            </p>
-        </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 px-6 border-t border-white/10 text-center text-sm font-bold tracking-widest uppercase text-white/50">
+        © 2026 GHULAM MUSTAFA KHIZAR
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // lucide handled in script.js
+        lucide.createIcons();
+        gsap.registerPlugin(ScrollTrigger);
 
-            
-
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
-
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterButtons.forEach(b => {
-                        b.classList.remove('bg-dark', 'text-white', 'shadow-premium');
-                        b.classList.add('bg-white', 'border', 'border-gray-200', 'text-dark/60');
-                    });
-                    btn.classList.remove('bg-white', 'border', 'border-gray-200', 'text-dark/60');
-                    btn.classList.add('bg-dark', 'text-white', 'shadow-premium');
-
-                    const category = btn.getAttribute('data-filter');
-
-                    projectCards.forEach(card => {
-                        const cardCategory = card.getAttribute('data-category');
-                        if (category === 'all' || cardCategory === category) {
-                            card.style.display = 'flex';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0) scale(1)';
-                            }, 50);
-                        } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px) scale(0.95)';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 400);
-                        }
-                    });
-                });
-            });
-
-            gsap.from('.project-card', {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                stagger: 0.1,
-                ease: 'power4.out'
-            });
+        // Custom Cursor
+        const cursor = document.getElementById('custom-cursor');
+        const hoverTargets = document.querySelectorAll('.hover-target, a, button');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            target.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
         });
 
-        const projectDetails = {
-            campusbook: {
-                title: 'CampusBook Social Network',
-                subtitle: 'Full-Stack University Community Platform',
-                description: 'CampusBook represents a secure, high-fidelity college social networking platform. It handles session authentications, feeds, relational database seeds, and live client dashboards for real-world interactions.',
-                highlights: [
-                    'Engineered real-time story viewer components built with reactive frontend layouts.',
-                    'Developed custom SQL database architectures running relational schemas for posts, auths, and media streams.',
-                    'Built fully responsive panels with premium dark modes, glassmorphism styles, and clean interaction states.',
-                    'Constructed dynamic live web chats enabling clean, modular private channels.'
-                ],
-                stack: ['PHP Core', 'MySQL', 'React Components', 'TailwindCSS', 'JavaScript ES6'],
-                github: 'https://github.com/KhizarDoingProgramming'
-            },
-            flowers: {
-                title: 'Flower Classification Engine',
-                subtitle: 'Computer Vision Deep Learning System',
-                description: 'A mathematical and programmatic implementation of deep learning neural networks. Formulates computer vision pipelines executing classification matrices to diagnose and identify multiple botanical species from visual datasets.',
-                highlights: [
-                    'Configured sequential computer vision pipelines optimizing layers of custom image arrays.',
-                    'Leveraged deep learning architectures to compute accurate weights over raw vector image data.',
-                    'Constructed high-dimensional linear mechanical algorithms to test data model layers.',
-                    'Integrated dataset loaders and testing suites tracking model convergence rates.'
-                ],
-                stack: ['TensorFlow', 'Python', 'NumPy', 'Computer Vision', 'Matplotlib'],
-                github: 'https://github.com/KhizarDoingProgramming'
-            },
-            smokers: {
-                title: "Smoker's Hub Web Platform",
-                subtitle: 'Modular E-Commerce Relational Engine',
-                description: "Evolution of a legacy flat-file catalog application into a responsive modern e-commerce platform. Implements clean modular backends handling session authentications and product catalog updates.",
-                highlights: [
-                    'Replaced flat HTML systems with secure modular relational PHP architectures.',
-                    'Developed relational database models handling catalog data streams with secure CRUD layers.',
-                    'Created dynamic client-side forms with premium input checking loops.',
-                    'Designed a completely responsive CSS grid catalog adapting to dynamic layouts.'
-                ],
-                stack: ['Modular PHP', 'MySQL DB', 'CSS Grid & Flex', 'JavaScript ES6', 'SQL Security'],
-                github: 'https://github.com/KhizarDoingProgramming'
-            },
-            heart: {
-                title: 'Heart Disease Predictor',
-                subtitle: 'Clinical Machine Learning Classifier',
-                description: 'A mathematical data science system evaluating medical data variables to predict coronary disease risks with custom predictive algorithms.',
-                highlights: [
-                    'Built clinical datasets featuring preprocessing pipelines for model evaluations.',
-                    'Utilized binary classification algorithms (Logistic Regression, Decision Trees) to construct data mappings.',
-                    'Analyzed patient demographic and clinical characteristics using predictive matrices.',
-                    'Tracked feature importance metrics highlighting critical correlation elements.'
-                ],
-                stack: ['Python', 'Scikit-Learn', 'Pandas Core', 'NumPy Vectors', 'Data Analysis'],
-                github: 'https://github.com/KhizarDoingProgramming'
-            },
-            banking: {
-                title: 'Banking System with File Handling',
-                subtitle: 'Secure Accounting Desktop Application',
-                description: 'A high-integrity console and file-system application managing user accounting, transaction logs, and secure local files.',
-                highlights: [
-                    'Implemented multi-tier user logins with protected file validations.',
-                    'Structured secure binary file streams tracking credit, debit, and transaction receipts.',
-                    'Engineered C++ classes managing account registrations and numeric calculations.',
-                    'Designed low-level assembly functions securing raw transaction data.'
-                ],
-                stack: ['C++', 'Assembly Language', 'File Streams', 'Binary Logging', 'Data Structures'],
-                github: 'https://github.com/KhizarDoingProgramming'
-            },
-            cpu: {
-                title: 'Mini CPU Simulator',
-                subtitle: 'COAL Processor Pipeline Simulation',
-                description: 'A simulator demonstrating the fundamental operation loops of an 8/16-bit processor execution core. Parses custom instruction layers, register indexes, and execution shifts programmatically.',
-                highlights: [
-                    'Modeled instruction parsing pipelines for accumulator, registers, and memory addressing modes.',
-                    'Programmed interactive visualization panels showing value updates inside registers.',
-                    'Engineered programmatic index operations and arithmetic shift systems.',
-                    'Developed custom parsing functions compiling mock-assembly operations into raw codes.'
-                ],
-                stack: ['Assembly Logic', 'C++', 'Computer Architecture', 'Instruction Pipelines'],
-                github: 'https://github.com/KhizarDoingProgramming'
-            },
-            spam: {
-                title: 'Spam Email Classifier',
-                subtitle: 'Natural Language Processing Classifier',
-                description: 'A Natural Language Processing model filtering phishing and spam emails using tokenized language models and text classifications.',
-                highlights: [
-                    'Constructed text parsing engines cleaning raw text into token arrays.',
-                    'Leveraged Naive Bayes algorithms to train robust classification models.',
-                    'Analyzed keyword frequencies and token occurrences mapping spam variables.',
-                    'Evaluated performance curves demonstrating optimal accuracy rates.'
-                ],
-                stack: ['Python', 'NLTK', 'Scikit-Learn', 'NLP Models', 'Pandas'],
-                github: 'https://github.com/KhizarDoingProgramming'
-            }
-        };
-
-        function openModal(projectId) {
-            const data = projectDetails[projectId];
-            if (!data) return;
-
-            const modal = document.getElementById('project-modal');
-            const content = document.getElementById('modal-content');
-
-            let highlightsHtml = '';
-            data.highlights.forEach(hl => {
-                highlightsHtml += `<li class="flex items-start gap-4 text-dark/60 font-medium text-sm leading-relaxed mb-3">
-                    <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
-                    <span>${hl}</span>
-                </li>`;
-            });
-
-            let tagsHtml = '';
-            data.stack.forEach(tech => {
-                tagsHtml += `<span class="px-3.5 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-xs font-black text-dark/70">${tech}</span>`;
-            });
-
-            content.innerHTML = `
-                <div class="space-y-6">
-                    <div class="space-y-2">
-                        <span class="text-xs uppercase tracking-widest text-primary font-black block">${data.subtitle}</span>
-                        <h2 class="text-4xl font-black text-dark leading-tight">${data.title}</h2>
-                    </div>
-                    <p class="text-dark/50 font-medium text-base leading-relaxed">
-                        ${data.description}
-                    </p>
-                    <div class="space-y-4">
-                        <h4 class="text-xs uppercase tracking-widest text-dark/40 font-black">Technical Milestones</h4>
-                        <ul class="list-none p-0">${highlightsHtml}</ul>
-                    </div>
-                    <div class="space-y-4">
-                        <h4 class="text-xs uppercase tracking-widest text-dark/40 font-black">Applied Stack</h4>
-                        <div class="flex flex-wrap gap-2.5">${tagsHtml}</div>
-                    </div>
-                    <div class="pt-6">
-                        <a href="${data.github}" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-dark hover:bg-primary hover:shadow-glow text-white font-bold rounded-2xl active:scale-95 transition-all">
-                            <i data-lucide="github" class="w-5 h-5"></i> View Source Code
-                        </a>
-                    </div>
-                </div>
-            `;
-
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                modal.firstElementChild.classList.remove('scale-95');
-            }, 50);
-
-            // Reinitialize lucide icons inside modal content
-            // lucide handled in script.js
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('project-modal');
-            modal.firstElementChild.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('opacity-0', 'pointer-events-none');
-            }, 300);
-        }
-
-        // Close modal when clicking outside content area
-        document.getElementById('project-modal').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('project-modal')) {
-                closeModal();
-            }
+        // Reveals
+        gsap.utils.toArray('.reveal-up').forEach(element => {
+            gsap.fromTo(element, 
+                { opacity: 0, y: 50 },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1, 
+                    ease: "power3.out", 
+                    scrollTrigger: { 
+                        trigger: element, 
+                        start: "top 85%", 
+                        toggleActions: "play none none reverse" 
+                    } 
+                }
+            );
         });
     </script>
-<script src="script.js"></script>
 </body>
 </html>
