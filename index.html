@@ -91,15 +91,12 @@
             </h1>
         </div>
 
-        <!-- Scroll Down indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 flex items-center justify-center w-32 h-32 opacity-70 hover:opacity-100 transition-opacity">
-            <svg viewBox="0 0 100 100" class="w-full h-full animate-spin-slow">
-                <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
-                <text class="text-[11px] font-black uppercase tracking-[0.25em]" fill="white">
-                    <textPath href="#circlePath">Scroll Down • Scroll Down • </textPath>
-                </text>
-            </svg>
-            <i data-lucide="arrow-down" class="absolute w-8 h-8 text-accent animate-bounce"></i>
+        <!-- Modern Scroll Down indicator -->
+        <div class="absolute bottom-12 right-6 md:right-12 z-30 flex flex-col items-center gap-4 opacity-50 hover:opacity-100 transition-opacity">
+            <span class="text-white text-[10px] font-black uppercase tracking-[0.4em]" style="writing-mode: vertical-rl;">SCROLL</span>
+            <div class="w-[1px] h-20 bg-white/20 relative overflow-hidden">
+                <div class="w-full h-1/2 bg-accent absolute top-0 animate-scroll-line"></div>
+            </div>
         </div>
     </section>
 
