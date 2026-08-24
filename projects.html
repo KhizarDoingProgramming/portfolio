@@ -42,12 +42,12 @@
 
     <!-- Header -->
     <header class="fixed top-0 w-full z-50 px-6 py-8 md:px-12 md:py-10 flex items-center justify-between text-white bg-darker/80 backdrop-blur-md">
-        <a href="index.html" class="hover-target flex items-center gap-4">
+        <a href="/" class="hover-target flex items-center gap-4">
             <img src="assets/images/logo.png" alt="Logo" class="h-10 md:h-12 w-auto max-w-[200px] object-contain">
         </a>
         <div class="flex items-center gap-6">
-            <a href="index.html#contact" class="hidden md:flex bg-white text-darker px-8 py-3 rounded-full font-black text-xs uppercase tracking-widest hover:bg-accent hover:text-white transition-colors hover-target">Let's Talk</a>
-            <a href="index.html" class="p-2 hover:text-accent transition-colors hover-target cursor-pointer relative z-50">
+            <a href="/#contact" class="hidden md:flex bg-white text-darker px-8 py-3 rounded-full font-black text-xs uppercase tracking-widest hover:bg-accent hover:text-white transition-colors hover-target">Let's Talk</a>
+            <a href="/" class="p-2 hover:text-accent transition-colors hover-target cursor-pointer relative z-50">
                 <i data-lucide="arrow-left" class="w-10 h-10"></i>
             </a>
         </div>
@@ -60,7 +60,25 @@
 
         <div class="grid md:grid-cols-2 gap-12">
             
-            <!-- 1. Kyza -->
+            <!-- MConnect Project (added as top entry) -->
+<div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up relative">
+    <div class="absolute inset-0 z-0">
+        <img src="https://image.thum.io/get/width/1200/crop/800/https://mconnectweb.vercel.app" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700" />
+    </div>
+    <div class="p-8 relative z-10 flex flex-col h-full justify-between min-h-[300px]">
+        <div>
+            <h3 class="text-3xl font-display font-black mb-2">MConnect</h3>
+            <p class="text-white/60 mb-8">A modern web app connecting people with shared interests.</p>
+        </div>
+        <div class="flex flex-wrap gap-4">
+            <a href="https://mconnectweb.vercel.app" target="_blank" class="bg-white text-darker px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors flex items-center gap-2">
+                <i data-lucide="external-link" class="w-4 h-4"></i> Live Preview</a>
+            <a href="https://github.com/KhizarDoingProgramming/MConnect" target="_blank" class="border border-white/20 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors flex items-center gap-2">
+                <i data-lucide="github" class="w-4 h-4"></i> Source</a>
+        </div>
+    </div>
+</div>
+<!-- 1. Kyza -->
             <div class="bg-light rounded-3xl overflow-hidden group hover-target border border-white/5 reveal-up relative">
                 <div class="absolute inset-0 z-0">
                     <img src="https://image.thum.io/get/width/1200/crop/800/https://kyza.vercel.app" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700">
