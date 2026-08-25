@@ -12,13 +12,24 @@
 }
 
 body {
-    background-color: var(--light);
-  cursor: none; /* Hide default cursor */
   background-color: var(--light);
   color: var(--dark);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Custom cursor only on devices with a real mouse/pointer */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none; /* Hide default cursor */
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
 }
 
 .custom-cursor {

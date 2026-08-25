@@ -3,7 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghulam Mustafa Khizar</title>
+    <title>Ghulam Mustafa Khizar — Full-Stack Developer</title>
+    <meta name="description" content="Portfolio of Ghulam Mustafa Khizar (Mustafa) — CS student building full-stack web apps, AI-powered platforms, and modern digital experiences. Explore LUNO, Kyza, MConnect and more.">
+    <link rel="canonical" href="https://mustaffa.vercel.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mustaffa.vercel.app/">
+    <meta property="og:title" content="Ghulam Mustafa Khizar — Full-Stack Developer">
+    <meta property="og:description" content="CS student building full-stack web apps, AI-powered platforms, and modern digital experiences.">
+    <meta property="og:image" content="https://mustaffa.vercel.app/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Mustafa Khizar">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ghulam Mustafa Khizar — Full-Stack Developer">
+    <meta name="twitter:description" content="CS student building full-stack web apps, AI-powered platforms, and modern digital experiences.">
+    <meta name="twitter:image" content="https://mustaffa.vercel.app/assets/images/og-image.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,7 +65,7 @@
 
     <!-- Fullscreen Menu Overlay -->
     <div id="menu-overlay" class="fixed inset-0 bg-darker text-white z-[100] flex flex-col px-6 md:px-24 pb-12 pointer-events-none overflow-y-auto overflow-x-hidden">
-        <button id="close-menu" class="absolute top-8 right-8 md:top-12 md:right-12 text-white hover:text-accent transition-colors hover-target z-[110] pointer-events-auto">
+        <button id="close-menu" aria-label="Close menu" class="absolute top-8 right-8 md:top-12 md:right-12 text-white hover:text-accent transition-colors hover-target z-[110] pointer-events-auto">
             <i data-lucide="x" class="w-10 h-10"></i>
         </button>
         <div class="my-auto py-24 w-full flex flex-col justify-center min-h-[max-content]">
@@ -73,7 +91,7 @@
         </a>
         <div class="flex items-center gap-6">
             <a href="#contact" class="hidden md:flex bg-white text-darker px-8 py-3 rounded-full font-black text-xs uppercase tracking-widest hover:bg-accent hover:text-white transition-colors hover-target">Let's Talk</a>
-            <button id="open-menu" class="p-2 hover:text-accent transition-colors hover-target relative z-50 cursor-pointer">
+            <button id="open-menu" aria-label="Open menu" aria-expanded="false" aria-controls="menu-overlay" class="p-2 hover:text-accent transition-colors hover-target relative z-50 cursor-pointer">
                 <i data-lucide="menu" class="w-10 h-10"></i>
             </button>
         </div>
@@ -146,12 +164,36 @@
                 <!-- 6 Projects -> 600vw -->
                 <div class="horizontal-scroll-content flex h-screen w-max" id="projects-content">
                 
-                <!-- Project 0: Kyza -->
+                <!-- Project 0: LUNO -->
+                <div class="panel w-screen h-screen shrink-0 flex items-center justify-center p-6 md:p-12">
+                    <div class="w-full h-full md:w-[80vw] md:h-[80vh] bg-light rounded-3xl overflow-hidden relative group hover-target flex items-center justify-center border border-white/10 shadow-2xl">
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 z-0 scale-100 group-hover:scale-100 transition-transform duration-1000">
+                            <img src="assets/images/luno-screen.png" alt="LUNO Language Learning Platform" class="w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity duration-1000">
+                            <div class="absolute inset-0 bg-darker/80 group-hover:bg-darker/40 transition-colors duration-700"></div>
+                        </div>
+                        
+                        <div class="relative z-20 p-8 md:p-16 w-full text-center">
+                            <span class="text-accent font-black uppercase tracking-[0.3em] text-xs md:text-sm mb-6 block drop-shadow-lg">Gamified Language Learning Platform</span>
+                            <h3 class="text-5xl md:text-8xl font-display font-black tracking-tighter mb-12 drop-shadow-2xl">LUNO</h3>
+                            <div class="flex flex-wrap justify-center gap-6">
+                                <a href="https://lunolearn.vercel.app" target="_blank" class="bg-white text-darker px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors hover-target flex items-center gap-2">
+                                    <i data-lucide="external-link" class="w-5 h-5"></i> Live Preview
+                                </a>
+                                <a href="https://github.com/KhizarDoingProgramming/LUNO" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors hover-target flex items-center gap-2 backdrop-blur-sm">
+                                    <i data-lucide="github" class="w-5 h-5"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 1: Kyza -->
                 <div class="panel w-screen h-screen shrink-0 flex items-center justify-center p-6 md:p-12">
                     <div class="w-full h-full md:w-[80vw] md:h-[80vh] bg-light rounded-3xl overflow-hidden relative group hover-target flex flex-col items-center justify-center border border-white/10 shadow-2xl">
                         <!-- Background Image -->
                         <div class="absolute inset-0 z-0 scale-100 group-hover:scale-100 transition-transform duration-1000">
-                            <img src="https://image.thum.io/get/width/1200/crop/800/https://kyza.vercel.app" class="w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity duration-1000">
+                            <img src="assets/images/kyza-screen.png" alt="Kyza AI Assistant Platform" class="w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity duration-1000">
                             <div class="absolute inset-0 bg-darker/80 group-hover:bg-darker/40 transition-colors duration-700"></div>
                         </div>
                         
@@ -171,7 +213,7 @@
                     </div>
                 </div>
 
-                <!-- Project 1: MConnect -->
+                <!-- Project 2: MConnect -->
                 <div class="panel w-screen h-screen shrink-0 flex items-center justify-center p-6 md:p-12">
                     <div class="w-full h-full md:w-[80vw] md:h-[80vh] bg-light rounded-3xl overflow-hidden relative group hover-target flex flex-col items-center justify-center border border-white/10 shadow-2xl">
                         <!-- Background Image -->
@@ -193,7 +235,7 @@
                     </div>
                 </div>
 
-                <!-- Project 2: MUSTAV -->
+                <!-- Project 3: MUSTAV -->
                 <div class="panel w-screen h-screen shrink-0 flex items-center justify-center p-6 md:p-12">
                     <div class="w-full h-full md:w-[80vw] md:h-[80vh] bg-light rounded-3xl overflow-hidden relative group hover-target flex items-center justify-center border border-white/10 shadow-2xl">
                         <!-- Background Image -->
@@ -217,12 +259,12 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Khizex -->
+                <!-- Project 4: Khizex -->
                 <div class="panel w-screen h-screen shrink-0 flex items-center justify-center p-6 md:p-12">
                     <div class="w-full h-full md:w-[80vw] md:h-[80vh] bg-light rounded-3xl overflow-hidden relative group hover-target flex items-center justify-center border border-white/10 shadow-2xl">
                         <!-- Background Image -->
                         <div class="absolute inset-0 z-0 scale-100 group-hover:scale-100 transition-transform duration-1000">
-                            <img src="https://image.thum.io/get/width/1200/crop/800/https://khizex.web.app" class="w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity duration-1000">
+                            <img src="assets/images/khizex-screen.png" alt="Khizex Architecture and Design Agency" class="w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity duration-1000">
                             <div class="absolute inset-0 bg-darker/80 group-hover:bg-darker/40 transition-colors duration-700"></div>
                         </div>
                         
@@ -234,30 +276,6 @@
                                     <i data-lucide="external-link" class="w-5 h-5"></i> Live Preview
                                 </a>
                                 <a href="https://github.com/KhizarDoingProgramming/KHIZEX" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors hover-target flex items-center gap-2 backdrop-blur-sm">
-                                    <i data-lucide="github" class="w-5 h-5"></i> Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: LUNO -->
-                <div class="panel w-screen h-screen shrink-0 flex items-center justify-center p-6 md:p-12">
-                    <div class="w-full h-full md:w-[80vw] md:h-[80vh] bg-light rounded-3xl overflow-hidden relative group hover-target flex items-center justify-center border border-white/10 shadow-2xl">
-                        <!-- Background Image -->
-                        <div class="absolute inset-0 z-0 scale-100 group-hover:scale-100 transition-transform duration-1000">
-                            <img src="assets/images/luno-screen.png" alt="LUNO Language Learning Platform" class="w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity duration-1000">
-                            <div class="absolute inset-0 bg-darker/80 group-hover:bg-darker/40 transition-colors duration-700"></div>
-                        </div>
-                        
-                        <div class="relative z-20 p-8 md:p-16 w-full text-center">
-                            <span class="text-accent font-black uppercase tracking-[0.3em] text-xs md:text-sm mb-6 block drop-shadow-lg">Gamified Language Learning Platform</span>
-                            <h3 class="text-5xl md:text-8xl font-display font-black tracking-tighter mb-12 drop-shadow-2xl">LUNO</h3>
-                            <div class="flex flex-wrap justify-center gap-6">
-                                <a href="https://lunolearn.vercel.app" target="_blank" class="bg-white text-darker px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-colors hover-target flex items-center gap-2">
-                                    <i data-lucide="external-link" class="w-5 h-5"></i> Live Preview
-                                </a>
-                                <a href="https://github.com/KhizarDoingProgramming/LUNO" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-white hover:text-darker transition-colors hover-target flex items-center gap-2 backdrop-blur-sm">
                                     <i data-lucide="github" class="w-5 h-5"></i> Source Code
                                 </a>
                             </div>
@@ -393,6 +411,7 @@
 
         const openMenu = () => {
             if(openBtn) {
+                openBtn.setAttribute('aria-expanded', 'true');
                 const icon = openBtn.querySelector('svg') || openBtn.querySelector('i');
                 if(icon) {
                     icon.style.transition = 'transform 0.4s cubic-bezier(0.77, 0, 0.175, 1)';
@@ -404,6 +423,7 @@
                 menuOverlay.classList.remove('pointer-events-none');
                 menuOverlay.classList.add('open');
                 document.body.style.overflow = 'hidden';
+                closeBtn.focus();
                 gsap.fromTo('.menu-link', 
                     { y: 50, opacity: 0 }, 
                     { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, delay: 0.3, ease: "power3.out" }
@@ -417,6 +437,7 @@
             document.body.style.overflow = '';
             
             if(openBtn) {
+                openBtn.setAttribute('aria-expanded', 'false');
                 const icon = openBtn.querySelector('svg') || openBtn.querySelector('i');
                 if(icon) {
                     icon.style.transform = 'rotate(0deg) scale(1)';
@@ -427,6 +448,12 @@
         if(openBtn) openBtn.addEventListener('click', openMenu);
         if(closeBtn) closeBtn.addEventListener('click', closeMenu);
         navLinks.forEach(link => link.addEventListener('click', closeMenu));
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && menuOverlay.classList.contains('open')) {
+                closeMenu();
+                openBtn.focus();
+            }
+        });
 
         // 4. GSAP Scroll Animations
         gsap.registerPlugin(ScrollTrigger);
