@@ -1,0 +1,7 @@
+# Mustafa's Portfolio
+
+This is the personal portfolio website of Mustafa, showcasing projects and skills.
+
+## URLs
+- Main site: https://mustaffa.vercel.app/
+- Projects: https://mustaffa.vercel.app/projects.html
