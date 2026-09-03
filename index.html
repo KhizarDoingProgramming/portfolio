@@ -543,5 +543,26 @@
         });
 
     </script>
+    <script>
+        if ('modelContext' in navigator) {
+            navigator.modelContext.provideContext({
+                tools: {
+                    contact: {
+                        description: "Send a contact message.",
+                        parameters: {
+                            type: "object",
+                            properties: {
+                                message: { type: "string" }
+                            },
+                            required: ["message"]
+                        },
+                        handler: async (args) => {
+                            return "Message ready to be sent: " + args.message;
+                        }
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
