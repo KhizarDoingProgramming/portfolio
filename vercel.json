@@ -1,7 +1,29 @@
 {
   "version": 2,
   "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</llms.txt>; rel=\"alternate\"; type=\"text/markdown\", </.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/mcp>; rel=\"mcp\", </.well-known/agent-skills>; rel=\"agent-skills\", </.well-known/oauth-authorization-server>; rel=\"oauth-authorization-server\", </.well-known/webmcp>; rel=\"webmcp\""
+        }
+      ]
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "(?i).*text/markdown.*"
+        }
+      ],
+      "destination": "/llms.txt"
+    },
     {
       "source": "/api/contact",
       "destination": "/api/contact.js"

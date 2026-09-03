@@ -1,0 +1,4 @@
+{
+  "resource": "https://mustaffa.vercel.app/api",
+  "authorization_servers": ["https://mustaffa.vercel.app"]
+}
