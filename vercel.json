@@ -43,23 +43,10 @@
       ]
     }
   ],
-  "rewrites": {
-    "beforeFiles": [
-      {
-        "source": "/(.*)",
-        "has": [
-          {
-            "type": "header",
-            "key": "accept",
-            "value": "(?i).*text/markdown.*"
-          }
-        ],
-        "destination": "/api/index-md"
-      },
-      {
-        "source": "/api/contact",
-        "destination": "/api/contact.js"
-      }
-    ]
-  }
+  "rewrites": [
+    {
+      "source": "/api/contact",
+      "destination": "/api/contact.js"
+    }
+  ]
 }
