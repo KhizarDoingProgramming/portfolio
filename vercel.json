@@ -46,12 +46,12 @@
   "rewrites": {
     "beforeFiles": [
       {
-        "source": "/",
+        "source": "/(.*)",
         "has": [
           {
             "type": "header",
             "key": "accept",
-            "value": ".*text/markdown.*"
+            "value": "(?i).*text/markdown.*"
           }
         ],
         "destination": "/api/index-md"
