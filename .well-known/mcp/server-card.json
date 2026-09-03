@@ -1,0 +1,8 @@
+{
+  "serverInfo": {
+    "name": "portfolio-mcp",
+    "version": "1.0.0"
+  },
+  "transport": "sse",
+  "capabilities": {}
+}

@@ -7,7 +7,7 @@
       "headers": [
         {
           "key": "Link",
-          "value": "</llms.txt>; rel=\"alternate\"; type=\"text/markdown\", </.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/mcp>; rel=\"mcp\", </.well-known/agent-skills>; rel=\"agent-skills\", </.well-known/oauth-authorization-server>; rel=\"oauth-authorization-server\", </.well-known/webmcp>; rel=\"webmcp\", </auth.md>; rel=\"agent-registration\""
+          "value": "</llms.txt>; rel=\"alternate\"; type=\"text/markdown\", </.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/mcp/server-card.json>; rel=\"mcp\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\", </.well-known/oauth-authorization-server>; rel=\"oauth-authorization-server\", </.well-known/webmcp/index.json>; rel=\"webmcp\", </auth.md>; rel=\"agent-registration\""
         }
       ]
     },
@@ -30,7 +30,7 @@
       ]
     },
     {
-      "source": "/.well-known/(api-catalog|mcp|agent-skills|oauth-authorization-server|oauth-protected-resource|webmcp)",
+      "source": "/.well-known/(api-catalog|mcp/server-card.json|agent-skills/index.json|oauth-authorization-server|oauth-protected-resource|webmcp/index.json)",
       "headers": [
         {
           "key": "Content-Type",
@@ -49,7 +49,7 @@
           "value": "(?i).*text/markdown.*"
         }
       ],
-      "destination": "/llms.txt"
+      "destination": "/api/index-md"
     },
     {
       "source": "/api/contact",
