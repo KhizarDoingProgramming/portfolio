@@ -7,7 +7,34 @@
       "headers": [
         {
           "key": "Link",
-          "value": "</llms.txt>; rel=\"alternate\"; type=\"text/markdown\", </.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/mcp>; rel=\"mcp\", </.well-known/agent-skills>; rel=\"agent-skills\", </.well-known/oauth-authorization-server>; rel=\"oauth-authorization-server\", </.well-known/webmcp>; rel=\"webmcp\""
+          "value": "</llms.txt>; rel=\"alternate\"; type=\"text/markdown\", </.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/mcp>; rel=\"mcp\", </.well-known/agent-skills>; rel=\"agent-skills\", </.well-known/oauth-authorization-server>; rel=\"oauth-authorization-server\", </.well-known/webmcp>; rel=\"webmcp\", </auth.md>; rel=\"agent-registration\""
+        }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/auth.md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/(api-catalog|mcp|agent-skills|oauth-authorization-server|oauth-protected-resource|webmcp)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
         }
       ]
     }

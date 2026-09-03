@@ -8,3 +8,4 @@ User-agent: Claude-Web
 Allow: /
 
 Sitemap: https://mustaffa.vercel.app/sitemap.xml
+Content-Signal: ai-train=allow, search=allow, ai-input=allow
